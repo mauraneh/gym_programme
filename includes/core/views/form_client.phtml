@@ -1,0 +1,80 @@
+<?php
+    ini_set('display_errors', 'on');
+    require_once "includes/core/globals.php";
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <?php require "includes/partials/page_head.phtml"; ?>
+</head>
+<body>
+<header>
+    <?php require "includes/partials/page_header.phtml"; ?>
+</header>
+<main>
+
+    <!--------------- INSCRIPTION ---------------------------->
+    <form action="index.php?page=client" method="post" enctype="multipart/form-data">
+        <div>
+            <label for="genre">Genre</label>
+            <select name="genre" id="genre">
+                <option value="0">-- Sélectionner --</option>
+                <?php
+                    foreach ($lesGenres as $unGenre){
+                        if($unGenre->getId() == $unClient->getGenre()->getId()){
+                            print('<option value="'.$unGenre->getId().'" selected>'.$unGenre->getLibelleLong().'</option>');
+                        }else{
+                            print('<option value="'.$unGenre->getId().'">'.$unGenre->getLibelleLong().'</option>');
+                        }
+
+                    }
+                ?>
+            </select>
+        </div>
+        <div>
+            <label for="nom">Nom : </label><input type="text" name="nom" id="nom">
+        </div>
+        <div>
+            <label for="prenom">Prénom : </label><input type="text" name="prenom" id="prenom">
+        </div>
+        <div>
+            <label for="dateNaissance">Date de naissance : </label><input type="date" name="dateNaissance" id="dateNaissance">
+        </div>
+        <div>
+            <label for="poidsRef">Poids de référence: </label>
+            <input type="number" name="poidsRef" id="poidsRef">
+        </div>
+        <div>
+            <label for="poidsVise">Objectif de poids final: </label>
+            <input type="number" name="poidsVise" id="poidsVise">
+        </div>
+        <div>
+            <label for="taille">Taille : </label>
+            <input type="number" name="taille" id="taille">
+        </div>
+        <div>
+            <label for="email">E-mail : </label><input type="email" name="email" id="email">
+        </div>
+        <div>
+            <label for="mdp">Mot de passe : </label><input type="password" name="mdp" id="mdp">
+        </div>
+        <div>
+            <label for="telephone">Téléphone : </label><input type="tel" name="telephone" id="telephone">
+        </div>
+
+        <div>
+            <label for="Ville">Ville : </label><input type="ville" name="ville" id="ville">
+        </div>
+        <div>
+            <button type="submit">Valider</button>
+            <button type="reset">Réinitialiser</button>
+        </div>
+    </form>
+</main>
+<footer>
+    <?php
+        require_once "includes/partials/footer.phtml";
+    ?>
+</footer>
+</body>
+</html>

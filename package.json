@@ -1,0 +1,11 @@
+{
+  "scripts": {
+    "watch": "nodemon -e scss -x \"sass ./public/styles/sass/style.scss ./public/styles/css/style.css\"",
+    "refresh_styles": "sass ./styles/sass/style.scss ./public/styles/css/style.css"
+  },
+
+  "dependencies": {
+    "nodemon": "^2.0.20",
+    "sass": "^1.58.0"
+  }
+}

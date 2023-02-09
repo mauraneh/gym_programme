@@ -1,0 +1,60 @@
+@import '_reset', '_variables';
+
+//------------MIXIN---------------
+@mixin displayFlexCenter{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin displayFlexCenterBetween{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+@mixin displayFlexColumn{
+  display: flex;
+  flex-direction: column;
+}
+
+//------------LOGO----------------
+.logoSite img{
+  width: 12rem;
+}
+//------------tête page----------------
+.headPage {
+  @include displayFlexCenterBetween;
+  width: 100%;
+  padding: 0 2rem;
+  background-color: $background-header;
+  .iconLogHead {
+    @include displayFlexColumn;
+
+    > div{
+      font-size: 1.5rem;
+      margin: .5rem 0;
+      i{
+        color: $color-logo;
+        font-weight: 900;
+      }
+    }
+  }
+}
+.titre{
+  @include displayFlexCenter;
+  font-size: 2rem;
+  color: $color-logo;
+  font-weight: 900;
+  margin: 1rem;
+}
+
+//-------------------- NAVBAR ---------------------
+.navbar{
+  .menuNav{
+    > a{
+      background-color: $color-logo;
+      font-size: 1.5rem;
+      @include displayFlexCenterBetween;
+    }
+  }
+}

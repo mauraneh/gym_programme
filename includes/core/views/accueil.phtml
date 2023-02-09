@@ -1,0 +1,40 @@
+<?php
+    ini_set('display_errors', 'on');
+    require_once "includes/core/globals.php";
+?>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <?php require "includes/partials/page_head.phtml"; ?>
+</head>
+<body>
+<header>
+    <?php require "includes/partials/page_header.phtml"; ?>
+</header>
+<main>
+    <nav>
+        <?php require_once "includes/partials/navbar.phtml"; ?>
+    </nav>
+    <header>
+        <h1 id="titreAccueil">Bonjour @nomClient</h1>
+    </header>
+    <table class="tabSession">
+        <h2 class="titreSession">Session 1</h2>
+        <tr>
+        <th>Exercice: </th>
+        <th>Nombre de série: </th>
+        <th>Poids en kg: </th>
+        </tr>
+        <tr>
+        <td> Bench</td>
+        <td>4x 8reps</td>
+        <td>30</td>
+        </tr>
+
+    </table>
+    <footer>
+        <?php require_once "includes/partials/footer.phtml"; ?>
+    </footer>
+</main>
+</body>
+</html>
