@@ -1,20 +1,17 @@
 <?php
 
-    class Session
+    class Jours
     {
     private int $id;
-    private string $libelle, $ordre;
+    private string $libelle;
 
         /**
          * @param int $id
          * @param string $libelle
-         * @param string $ordre
          */
-        public function __construct(int $id, string $libelle, string $ordre)
+        public function __construct(string $libelle)
         {
-            $this->id = $id;
             $this->libelle = $libelle;
-            $this->ordre = $ordre;
         }
 
         /**
@@ -47,22 +44,6 @@
         public function setLibelle(string $libelle): void
         {
             $this->libelle = $libelle;
-        }
-
-        /**
-         * @return string
-         */
-        public function getOrdre(): string
-        {
-            return $this->ordre;
-        }
-
-        /**
-         * @param string $ordre
-         */
-        public function setOrdre(string $ordre): void
-        {
-            $this->ordre = $ordre;
         }
 
 

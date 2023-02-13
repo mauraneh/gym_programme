@@ -1,5 +1,5 @@
 <?php
-
+    require_once 'includes/core/models/Exercice.php';
     class Composer
     {
         private int $id;

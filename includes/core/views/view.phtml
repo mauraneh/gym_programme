@@ -1,0 +1,36 @@
+<?php
+    ini_set('display_errors', 'on');
+    require_once "includes/core/globals.php";
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <?php require "includes/partials/page_head.phtml"; ?>
+</head>
+<body>
+<header>
+    <?php require "includes/partials/page_header.phtml"; ?>
+</header>
+<main>
+
+    <!--------------- CONNECTION ---------------------------->
+    <article class="connectForm">
+        <form action="" method="post" enctype="multipart/form-data">
+            <div class="cont">
+                <a href="index.php?page=user&action=login">
+                    <button class="btn submits frgtPass" type="button">Se connecter</button>
+                </a>
+                <a href="index.php?page=client&action=add">
+                    <button class="btn submits frgtPass" type="button">S'inscrire</button>
+                </a>
+            </div>
+        </form>
+    </article>
+</main>
+<footer>
+    <?php
+        require_once "includes/partials/footer.phtml";
+    ?>
+</footer>
+</body>
+</html>

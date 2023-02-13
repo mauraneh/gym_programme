@@ -13,9 +13,8 @@
          * @param int $frequence
          * @param Client|null $client
          */
-        public function __construct(int $id, string $libelle, int $frequence, ?Client $client)
+        public function __construct(string $libelle, int $frequence, ?Client $client)
         {
-            $this->id = $id;
             $this->libelle = $libelle;
             $this->frequence = $frequence;
             $this->client = $client;

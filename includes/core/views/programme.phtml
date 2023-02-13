@@ -1,0 +1,44 @@
+<?php
+    ini_set('display_errors', 'on');
+    require_once "includes/core/globals.php";
+?>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <?php require "includes/partials/page_head.phtml"; ?>
+</head>
+<body>
+<header>
+    <?php require "includes/partials/page_header.phtml"; ?>
+</header>
+<main>
+
+
+    <header>
+        <h1>Ton programme</h1>
+    </header>
+    <a href="index.php?page=programme&action=add">Créer un programme</a>
+    <table>
+        <thead>
+        <th>Programme: </th>
+        </thead>
+        <tbody>
+        <?php
+            foreach ($lesProgrammes as $unProgramme){
+                print('<tr>');
+                print('<td>'.$unProgramme->getLibelle().'</td>');
+                print("<td><a href=\"index.php?page=session&action=edit&id={$unProgramme->getId()}\">Modifier</a></td>");
+                print('<td><a href="index.php?page=session&action=delete&id='.$unProgramme->getId().'">Supprimer</a></td>');
+                print('</tr>');
+            }
+        ?>
+        </tbody>
+
+    </table>
+
+    <footer>
+        <?php require_once "includes/partials/footer.phtml"; ?>
+    </footer>
+</main>
+</body>
+</html>

@@ -1,34 +1,34 @@
 <?php
 require_once 'includes/core/models/Genre.php';
+require_once 'includes/core/models/User.php';
     class Client
     {
         private int $id;
-        private string $nom, $prenom, $email, $mdp, $ville;
+        private string $nom, $prenom, $email, $ville;
         private DateTime $dateNaissance;
         private float $poidsRef, $poidsVise, $taille;
         private string $tel;
         private ?Genre $genre;
+        private ?User $user;
 
         /**
-         * @param int $id
          * @param string $nom
          * @param string $prenom
          * @param string $email
-         * @param string $mdp
          * @param string $ville
-         * @param DateTime $dateNaissance
+         * @param DateTime|null $dateNaissance
          * @param float $poidsRef
          * @param float $poidsVise
          * @param float $taille
          * @param string $tel
          * @param Genre|null $genre
+         * @param User|null $user
          */
-        public function __construct(string $nom='', string $prenom='', string $email='', string $mdp='', string $ville='', ?DateTime $dateNaissance = new DateTime('now'), float $poidsRef=0, float $poidsVise=0, float $taille=0, string $tel='', ?Genre $genre = null)
+        public function __construct(string $nom='', string $prenom='', string $email='', string $ville='', ?DateTime $dateNaissance = new DateTime('now'), float $poidsRef=0, float $poidsVise=0, float $taille=0, string $tel='', ?Genre $genre = null, ?User $user = null)
         {
             $this->nom = $nom;
             $this->prenom = $prenom;
             $this->email = $email;
-            $this->mdp = $mdp;
             $this->ville = $ville;
             if(is_null($dateNaissance)){
                 $this->dateNaissance = new DateTime('now');
@@ -40,6 +40,7 @@ require_once 'includes/core/models/Genre.php';
             $this->taille = $taille;
             $this->tel = $tel;
             $this->genre = $genre ?? new Genre('', '');
+            $this->user = $user ?? new User('', '');
         }
 
         //----------------- GET SET ----------------------------
@@ -105,22 +106,6 @@ require_once 'includes/core/models/Genre.php';
         public function setEmail(string $email): void
         {
             $this->email = $email;
-        }
-
-        /**
-         * @return string
-         */
-        public function getMdp(): string
-        {
-            return $this->mdp;
-        }
-
-        /**
-         * @param string $mdp
-         */
-        public function setMdp(string $mdp): void
-        {
-            $this->mdp = $mdp;
         }
 
         /**
@@ -233,6 +218,22 @@ require_once 'includes/core/models/Genre.php';
         public function setGenre(?Genre $genre): void
         {
             $this->genre = $genre;
+        }
+
+        /**
+         * @return User|null
+         */
+        public function getUser(): ?User
+        {
+            return $this->user;
+        }
+
+        /**
+         * @param User|null $user
+         */
+        public function setUser(?User $user): void
+        {
+            $this->user = $user;
         }
 
 

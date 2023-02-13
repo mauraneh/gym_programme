@@ -22,6 +22,11 @@
         }
         case 'client':{
            require_once 'includes/core/controllers/controller_client.php';
+           break;
+        }
+        case 'user':{
+            require_once 'includes/core/controllers/controller_user.php';
+            break;
         }
 		case 'accueil':{
 			require_once "includes/core/controllers/controller_accueil.php";
@@ -31,6 +36,10 @@
 			require_once "includes/core/controllers/controller_programme.php";
 			break;
 		}
+        case 'session':{
+            require_once "includes/core/controllers/controller_session.php";
+            break;
+        }
         case 'poids':{
             require_once "includes/core/controllers/controller_poids.php";
             break;

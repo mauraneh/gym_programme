@@ -14,19 +14,28 @@
                     $unClient = new Client(
                         $_POST['nom'],
                         $_POST['prenom'],
+                        $_POST['email'],
+                        $_POST['ville'],
                         date_create($_POST['dateNaissance']),
                         intval($_POST['poidsRef']),
                         intval($_POST['poidsVise']),
-                        getGenreById($_POST['genre']),
                         intval($_POST['taille']),
-                        $_POST['email'],
-                        $_POST['mdp'],
-                        $_POST['ville']
+                        $_POST['telephone'],
+                        getGenreById($_POST['genre']),
+                        new User($_POST['login'], $_POST['mdp'])
                     );
+
+                    if (insertClient($unClient)){
+                        header('Location: ?page=accueil');
+                    }else{
+                        $message = "Erreur d'enregistrement !";
+                    }
                 }
+//var_dump($unClient);
 
 
                 $lesGenres = getAllGenre();
+
                 require_once "includes/core/views/form_client.phtml";
                 break;
             }

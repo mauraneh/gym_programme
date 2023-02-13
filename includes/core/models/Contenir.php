@@ -1,5 +1,5 @@
 <?php
-
+require_once 'includes/core/models/Programme.php';
     class Contenir
     {
     private int $id;

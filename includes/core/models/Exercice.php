@@ -4,7 +4,7 @@
     {
     private int $id;
     private string $nom_exo;
-    private int $nbre_rep;
+    private int $nbre_rep, $nbre_serie;
     private float $poids;
 
         /**
@@ -13,11 +13,11 @@
          * @param int $nbre_rep
          * @param float $poids
          */
-        public function __construct(int $id, string $nom_exo, int $nbre_rep, float $poids)
+        public function __construct(string $nom_exo, int $nbre_rep, int $nbre_serie, float $poids)
         {
-            $this->id = $id;
             $this->nom_exo = $nom_exo;
             $this->nbre_rep = $nbre_rep;
+            $this->nbre_serie=$nbre_serie;
             $this->poids = $poids;
         }
 
@@ -83,6 +83,22 @@
         public function setPoids(float $poids): void
         {
             $this->poids = $poids;
+        }
+
+        /**
+         * @return int
+         */
+        public function getNbreSerie(): int
+        {
+            return $this->nbre_serie;
+        }
+
+        /**
+         * @param int $nbre_serie
+         */
+        public function setNbreSerie(int $nbre_serie): void
+        {
+            $this->nbre_serie = $nbre_serie;
         }
 
 

@@ -1,0 +1,80 @@
+<?php
+    ini_set('display_errors', 'on');
+    require_once "includes/core/globals.php";
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <?php require "includes/partials/page_head.phtml"; ?>
+</head>
+<body>
+<header>
+    <?php require "includes/partials/page_header.phtml"; ?>
+</header>
+<main>
+
+    <!--------------- CONNECTION ---------------------------->
+    <article class="connectForm">
+        <form action="" method="post" enctype="multipart/form-data">
+            <div class="cont">
+                <header class="headForm">
+                    <h1>Se connecter</h1>
+                    <p>Connecte toi ici avec ton nom d'utilisateur et ton mot de passe.</p>
+                </header>
+                <div class="fieldForm">
+                    <!--   User -->
+                    <span class="inputItem">
+                        <i class="fa fa-user-circle"></i>
+                    </span>
+                    <input
+                        name="user"
+                        id="user"
+                        type="text"
+                        placeholder="nom d'utilisateur"
+                        required
+                    />
+                    <!--   Password -->
+                    <span class="inputItem">
+                         <i class="fa fa-key"></i>
+                     </span>
+                    <input
+                        name="mdp"
+                        type="password"
+                        placeholder="Mot de passe"
+                        id="mdp"
+                        required
+                    />
+                    <!-- Show/hide password  -->
+                    <span>
+                <i class="fa fa-eye" id="eye"></i>
+              </span>
+                    <!-- button LogIn -->
+                    <button class="logIn" type="submit">Se connecter</button>
+                </div>
+                <!-- other buttons -->
+                <div class="other">
+                    <!-- Forgot Password button-->
+                    <a href="index.php?page=client&action=resetmdp">
+                        <button class="btn submits frgtPass" type="button">Mot de passe oublié?</button>
+                    </a>
+                    <!-- Sign Up button -->
+                    <a href="index.php?page=client&action=add">
+                        <button class="btn submits signUp" type="button">
+                            S'inscrire
+                            <i class="fa fa-user-plus"></i>
+                        </button>
+                    </a>
+                </div>
+            </div>
+        </form>
+    </article>
+    <?= $message ?? '' ?>
+</main>
+<footer>
+    <?php
+        require_once "includes/partials/footer.phtml";
+    ?>
+</footer>
+</body>
+<script src="/public/scripts/script_Login.js"></script>
+</html>
