@@ -15,22 +15,34 @@
     <nav>
         <?php require_once "includes/partials/navbar.phtml"; ?>
     </nav>
+
     <header>
-        <h1 id="titreAccueil">Bonjour @User</h1>
+        <h1> ACCUEIL DU GYMRAT</h1>
     </header>
-  <!--
+    <div>
+        <h2>Bonjour gymrat <?= $_SESSION['login'] ?></h2>
+    </div>
+    <!-- PROGRAMME ------------------>
+    <article>
+        <p>Ton programme de gymrat:</p>
+        <div>
+            <?php
+                if($unClient->getProgramme()!= null){
+                    print('<p>'.$unClient->getProgramme()->getLibelle().'</p>');
+                    print('<p>'.$unClient->getProgramme()->getFrequence().' <span>jours</span></p>');
+                    print('<p>'.$unClient->getProgramme()->getDescription().'</p>');
+                }else{
+                    print('<p>Trouver un programme</p>');
+                    print('<a class="buttonAdd" href="index.php?page=programme"><i class="fa-solid fa-dumbbell"></i></a>');
+                }
+            ?>
+        </div>
+    </article>
 
-  if jours session == jours actuel
-  afficher session du jours
-
-  sinon creer programme
-  -->
-    <p>Creer un programme</p>
-    <a class="buttonAdd" href="index.php?page=programme&action=add"><i class="fa-solid fa-plus"></i></a>
     <footer>
         <?php require_once "includes/partials/footer.phtml"; ?>
     </footer>
 </main>
 </body>
-<script src="/public/scripts/script.js"></script>
+
 </html>

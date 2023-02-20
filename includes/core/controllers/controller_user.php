@@ -6,7 +6,7 @@ switch ($action){
         require_once 'includes/core/models/daoUser.php';
 
         if(!empty($_POST)){
-            $loginUsed = $_POST['user'];
+            $loginUsed = $_POST['login'];
             $mdpUsed = $_POST['mdp'];
 
             if(userExists($loginUsed)){

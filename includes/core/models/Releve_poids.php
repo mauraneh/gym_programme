@@ -3,22 +3,23 @@
     class Releve_poids
     {
         private int $id;
+        private DateTime $dateAjout;
         private float $valeur;
-        private DateTime $date;
         private  ?Client $client;
 
         /**
          * @param int $id
+         * @param DateTime $dateAjout
          * @param float $valeur
-         * @param DateTime $date
          * @param Client|null $client
          */
-        public function __construct(int $id, float $valeur, DateTime $date, ?Client $client)
+        public function __construct(DateTime $dateAjout = new DateTime('now'), float $valeur=0, ?Client $client= null)
         {
-            $this->id = $id;
+
+            $this->dateAjout = $dateAjout;
             $this->valeur = $valeur;
-            $this->date = $date;
             $this->client = $client;
+            $this->id = 0;
         }
 
         /**
@@ -56,17 +57,17 @@
         /**
          * @return DateTime
          */
-        public function getDate(): DateTime
+        public function getDateAjout(): DateTime
         {
-            return $this->date;
+            return $this->dateAjout;
         }
 
         /**
          * @param DateTime $date
          */
-        public function setDate(DateTime $date): void
+        public function setDateAjout(DateTime $dateAjout): void
         {
-            $this->date = $date;
+            $this->dateAjout = $dateAjout;
         }
 
         /**

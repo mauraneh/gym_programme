@@ -1,12 +1,11 @@
 <?php
-
-    require_once 'includes/core/models/Programme.php';
     require_once 'includes/core/models/bdd.php';
+    require_once 'includes/core/models/Programme.php';
 
     function getAllProgrammes(): array{
         $conn = getConnexion();
 
-        $SQLQuery = "SELECT id, libelle, frequence
+        $SQLQuery = "SELECT id, libelle, frequence, description
 			FROM programme";
 
         $SQLStmt = $conn->prepare($SQLQuery);
@@ -15,15 +14,11 @@
         $listeProgrammes = array();
         while ($SQLRow = $SQLStmt->fetch(PDO::FETCH_ASSOC)){
 
-            $unProgramme = new Programme($SQLRow['libelle'], $SQLRow['frequence']);
+            $unProgramme = new Programme($SQLRow['libelle'], $SQLRow['frequence'], $SQLRow['description']);
 
             $unProgramme->setId($SQLRow['id']);
 
             $listeProgrammes[] = $unProgramme;
-
-            // Pour seconde solution possible
-            //$listePersonnes[] = new Personne() .....
-            //$listePersonnes[count($listePersonnes) - 1]->setId();
 
         }
 
@@ -31,11 +26,11 @@
 
         return $listeProgrammes;
     }
-    function getProgById(int $id): Genre{
+    function getProgById(int $id): Programme{
         $conn = getConnexion();
 
-        $SQLQuery = "SELECT id, libelle, frequence 
-			FROM genre
+        $SQLQuery = "SELECT id, libelle, frequence, description
+			FROM programme
 			WHERE id = :id";
 
         $SQLStmt = $conn->prepare($SQLQuery);
@@ -43,7 +38,7 @@
         $SQLStmt->execute();
 
         $SQLRow = $SQLStmt->fetch(PDO::FETCH_ASSOC);
-        $unProgramme = new Genre($SQLRow['libelle'], $SQLRow['frequence']);
+        $unProgramme = new Programme($SQLRow['libelle'], $SQLRow['frequence'], $SQLRow['description']);
         $unProgramme->setId($SQLRow['id']);
 
         $SQLStmt->closeCursor();

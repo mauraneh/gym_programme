@@ -7,22 +7,68 @@
 <head>
     <?php require "includes/partials/page_head.phtml"; ?>
 </head>
+
 <body>
 <header>
     <?php require "includes/partials/page_header.phtml"; ?>
 </header>
+
 <main>
-
-
+    <?php require "includes/partials/navbar.phtml"; ?>
     <header>
-        <h1>Ton poids</h1>
+        <h1> POIDS DU GYMRAT</h1>
     </header>
-    <a href="index.php?page=poids&action=add">Ajouter une poids <i class="fa-solid fa-plus"></i></a>
+    <div class="poids_ref">
+        <?php
+            print('Ton poids de départ est: '.$unClient->getPoidsRef().'kg');
+        ?>
+    </div>
+    <div class="poids_vise">
+        <?php
+            print('Ton objectif de poids: '.$unClient->getPoidsVise().'kg');
+        ?>
+    </div>
+    <div>
+        <a href="index.php?page=poids&action=add">Ajouter un poids <i class="fa-solid fa-plus"></i></a>
+    </div>
+    <div class="liste_poids">
+        <?php
+            $tableauPoidsJS = 'let poids = [';
+            $tableauDatesJS = 'let dates = [';
+            //var_dump($lesPoids);
+            foreach ($lesPoids as $unPoids){
+                if($unPoids->getValeur()){
+                    $unPoids->getValeur();
+                    $unPoids->getDateAjout()->format('d-m-Y');
 
+                    //Pour tests
+                    $tableauPoidsJS .= $unPoids->getValeur().',';
+                    $tableauDatesJS .= '\''.$unPoids->getDateAjout()->format('Y-m-d').'\',';
+                }
+            }
 
-    <footer>
-        <?php require_once "includes/partials/footer.phtml"; ?>
-    </footer>
+            $tableauPoidsJS = substr($tableauPoidsJS, 0, strlen($tableauPoidsJS) - 1).'];';
+            $tableauDatesJS = substr($tableauDatesJS, 0, strlen($tableauDatesJS) - 1).'];';
+        ?>
+    </div>
+
+<!----------------------GRAPH CANVAS--------------------------->
+    <div class="graph_container">
+        <canvas id="graphCanvas" aria-label="chart" role="img"></canvas>
+    </div>
+
 </main>
+<footer>
+    <?php require_once "includes/partials/footer.phtml"; ?>
+</footer>
+
+<!----------------------LIEN ENTRE JS ET PHP--------------------------->
+<script>
+    <?= $tableauPoidsJS ?>
+    <?= $tableauDatesJS ?>
+</script>
+<?php
+    require_once "includes/partials/scripts.phtml";
+?>
 </body>
 </html>

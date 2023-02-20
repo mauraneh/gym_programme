@@ -1,0 +1,38 @@
+<?php
+    ini_set('display_errors', 'on');
+    require_once "includes/core/globals.php";
+?>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <?php require "includes/partials/page_head.phtml"; ?>
+</head>
+<body>
+<header>
+    <?php require "includes/partials/page_header.phtml"; ?>
+</header>
+<main>
+    <h1>C'est l'heure de la pesée du Gymrat: </h1>
+
+    <!--------------- ajout du nouveau poids ---------------------------->
+    <form action="" method="post" enctype="multipart/form-data">
+        <div>
+            <label for="dateAjout">Date d'ajout du poids: </label><input type="date" name="dateAjout" id="dateAjout" value="<?= $unPoids->getDateAjout()->format('Y-m-d') ?>">
+        </div>
+        <div>
+            <label for="valeur">Nouveau poids : </label><input type="number" step="any" name="valeur" id="valeur" value="<?= $unPoids->getValue?>">
+        </div>
+        <div>
+            <button type="submit">Valider</button>
+            <button type="reset">Réinitialiser</button>
+        </div>
+    </form>
+    <?= $message ?? '' ?>
+</main>
+<footer>
+    <?php
+        require_once "includes/partials/footer.phtml";
+    ?>
+</footer>
+</body>
+</html>

@@ -11,7 +11,7 @@
 		action : par defaut : view
 	*/
 
-
+    session_start();
 	$page = $_GET['page'] ?? 'index';
 	$action = $_GET['action'] ?? 'view'; 
 
@@ -50,6 +50,10 @@
         }
         case 'contact':{
             require_once "includes/core/controllers/controller_contact.php";
+            break;
+        }
+        case 'confirmation':{
+            require_once "includes/core/views/confirmation.phtml";
             break;
         }
 		default:{

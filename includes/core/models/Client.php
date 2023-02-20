@@ -10,6 +10,7 @@ require_once 'includes/core/models/User.php';
         private string $tel;
         private ?Genre $genre;
         private ?User $user;
+        private ?Programme $programme;
 
         /**
          * @param string $nom
@@ -23,8 +24,9 @@ require_once 'includes/core/models/User.php';
          * @param string $tel
          * @param Genre|null $genre
          * @param User|null $user
+         * @param Programme|null $programme
          */
-        public function __construct(string $nom='', string $prenom='', string $email='', string $ville='', ?DateTime $dateNaissance = new DateTime('now'), float $poidsRef=0, float $poidsVise=0, float $taille=0, string $tel='', ?Genre $genre = null, ?User $user = null)
+        public function __construct(string $nom='', string $prenom='', string $email='', string $ville='', ?DateTime $dateNaissance = new DateTime('now'), float $poidsRef=0, float $poidsVise=0, float $taille=0, string $tel='', ?Genre $genre = null, ?User $user = null, ?Programme $programme = null)
         {
             $this->nom = $nom;
             $this->prenom = $prenom;
@@ -41,6 +43,7 @@ require_once 'includes/core/models/User.php';
             $this->tel = $tel;
             $this->genre = $genre ?? new Genre('', '');
             $this->user = $user ?? new User('', '');
+            $this->programme = $programme ?? new Programme('', 0, '');
         }
 
         //----------------- GET SET ----------------------------
@@ -236,6 +239,21 @@ require_once 'includes/core/models/User.php';
             $this->user = $user;
         }
 
+        /**
+         * @return Programme|null
+         */
+        public function getProgramme(): ?Programme
+        {
+            return $this->programme;
+        }
+
+        /**
+         * @param Programme|null $programme
+         */
+        public function setProgramme(?Programme $programme): void
+        {
+            $this->programme = $programme;
+        }
 
 
     }

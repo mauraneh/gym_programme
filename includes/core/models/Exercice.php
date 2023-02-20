@@ -5,7 +5,7 @@
     private int $id;
     private string $nom_exo;
     private int $nbre_rep, $nbre_serie;
-    private float $poids;
+    private float $pause;
 
         /**
          * @param int $id
@@ -13,12 +13,12 @@
          * @param int $nbre_rep
          * @param float $poids
          */
-        public function __construct(string $nom_exo, int $nbre_rep, int $nbre_serie, float $poids)
+        public function __construct(string $nom_exo, int $nbre_rep, int $nbre_serie, float $pause)
         {
             $this->nom_exo = $nom_exo;
             $this->nbre_rep = $nbre_rep;
             $this->nbre_serie=$nbre_serie;
-            $this->poids = $poids;
+            $this->pause = $pause;
         }
 
         /**
@@ -72,17 +72,17 @@
         /**
          * @return float
          */
-        public function getPoids(): float
+        public function getPAuse(): float
         {
-            return $this->poids;
+            return $this->pause;
         }
 
         /**
-         * @param float $poids
+         * @param float $Pause
          */
-        public function setPoids(float $poids): void
+        public function setPause(float $pause): void
         {
-            $this->poids = $poids;
+            $this->pause = $pause;
         }
 
         /**

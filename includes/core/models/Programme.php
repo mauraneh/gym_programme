@@ -5,19 +5,19 @@
         private int $id;
         private string $libelle;
         private int $frequence;
-        private ?Client $client;
+        private string $description;
 
         /**
-         * @param int $id
          * @param string $libelle
          * @param int $frequence
-         * @param Client|null $client
+         * @param string $description
          */
-        public function __construct(string $libelle, int $frequence, ?Client $client)
+        public function __construct(string $libelle = '', int $frequence = 0, string $description = '')
         {
             $this->libelle = $libelle;
             $this->frequence = $frequence;
-            $this->client = $client;
+            $this->description = $description;
+            $this->id = 0;
         }
 
         /**
@@ -69,20 +69,19 @@
         }
 
         /**
-         * @return Client|null
+         * @return string
          */
-        public function getClient(): ?Client
+        public function getDescription(): string
         {
-            return $this->client;
+            return $this->description;
         }
 
         /**
-         * @param Client|null $client
+         * @param string $description
          */
-        public function setClient(?Client $client): void
+        public function setDescription(string $description): void
         {
-            $this->client = $client;
+            $this->description = $description;
         }
-
 
     }

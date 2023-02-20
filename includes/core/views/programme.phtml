@@ -12,12 +12,13 @@
     <?php require "includes/partials/page_header.phtml"; ?>
 </header>
 <main>
-
-
+    <nav>
+        <?php require_once "includes/partials/navbar.phtml"; ?>
+    </nav>
     <header>
-        <h1>Ton programme</h1>
+        <h1> PROGRAMME DU GYMRAT</h1>
     </header>
-    <a href="index.php?page=programme&action=add">Créer un programme</a>
+    <h2>Choisir un programme</h2>
     <table>
         <thead>
         <th>Programme: </th>
@@ -27,15 +28,26 @@
             foreach ($lesProgrammes as $unProgramme){
                 print('<tr>');
                 print('<td>'.$unProgramme->getLibelle().'</td>');
-                print("<td><a href=\"index.php?page=session&action=edit&id={$unProgramme->getId()}\">Modifier</a></td>");
-                print('<td><a href="index.php?page=session&action=delete&id='.$unProgramme->getId().'">Supprimer</a></td>');
+                print('<td>'.$unProgramme->getFrequence().' <span>jours</span></td>');
+                print("<td><a href=\"#{$unProgramme->getId()}\">Afficher</a></td>");
+                print("<td><a href=\"index.php?page=client&action=setProg&id={$unProgramme->getId()}\">Choisir</a></td>");
                 print('</tr>');
             }
         ?>
         </tbody>
-
     </table>
-
+<article class="ficheProg">
+    <?php
+        foreach ($lesProgrammes as $unProgramme){
+            print('<br>');
+            print('<h2 class="ficheProg__title" id='.$unProgramme->getId().'>'.$unProgramme->getLibelle().'</h2>');
+            print('<p class="ficheProg__frequence">'.$unProgramme->getFrequence().' <span>jours</span></p>');
+            print('<p class="ficheProg__description">'.$unProgramme->getDescription().'</p>');
+            print("<a href=\"index.php?page=client&action=setProg&id={$unProgramme->getId()}\">Choisir</a>");
+            print('<br>');
+        }
+    ?>
+</article>
     <footer>
         <?php require_once "includes/partials/footer.phtml"; ?>
     </footer>

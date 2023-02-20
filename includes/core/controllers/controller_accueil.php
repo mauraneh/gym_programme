@@ -1,13 +1,15 @@
 <?php
-    require_once "includes/core/models/Client.php";
-    require_once "includes/core/models/Genre.php";
     require_once 'includes/core/models/daoClient.php';
-    require_once 'includes/core/models/daoGenre.php';
+    require_once 'includes/core/models/daoPoids.php';
+    require_once 'includes/core/models/daoProgramme.php';
+    require_once 'includes/core/models/daoUser.php';
+    require_once 'includes/core/models/daoPoids.php';
 
 
+    $unClient = getClientByLogin($_SESSION['login']);
 
     $lesClients = getAllClient();
-    $lesGenres = getAllGenre();
+    $lesPoids = getAllPoids($unClient->getId());
 
     require_once("includes/core/views/accueil.phtml");
 

@@ -40,3 +40,24 @@
 
         return ($mdp == $mdpBDD);
     }
+    function getUserId(int $id): User{
+        $conn = getConnexion();
+
+        $SQLQuery = "
+			SELECT id, login, mdp
+			FROM userauth
+			WHERE id = :id	
+		";
+
+        $SQLStmt = $conn->prepare($SQLQuery);
+        $SQLStmt->bindValue(':id', $id, PDO::PARAM_INT);
+        $SQLStmt->execute();
+
+        $SQLRow = $SQLStmt->fetch(PDO::FETCH_ASSOC);
+        $newUser = new User($SQLRow['login'], $SQLRow['mdp']);
+        $newUser->setId($id);
+
+        $SQLStmt->closeCursor();
+
+        return ($newUser);
+    }

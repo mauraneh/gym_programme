@@ -1,12 +1,10 @@
 <?php
+    require_once 'includes/core/models/daoClient.php';
+    require_once 'includes/core/models/daoGenre.php';
+    require_once 'includes/core/models/daoProgramme.php';
 
     switch ($action) {
         case 'add':{
-            require_once "includes/core/models/Client.php";
-            require_once "includes/core/models/Genre.php";
-            require_once 'includes/core/models/daoClient.php';
-            require_once 'includes/core/models/daoGenre.php';
-
 
                 if(empty($_POST)){
                     $unClient = new Client();
@@ -26,21 +24,29 @@
                     );
 
                     if (insertClient($unClient)){
-                        header('Location: ?page=accueil');
+                        header('Location: index.php?page=user&action=login');
                     }else{
                         $message = "Erreur d'enregistrement !";
                     }
                 }
-//var_dump($unClient);
-
-
                 $lesGenres = getAllGenre();
 
                 require_once "includes/core/views/form_client.phtml";
                 break;
             }
-        case 'resetmdp':{
-            require_once "includes/core/views/reset_mdp.phtml";
+        case 'setProg':{
+
+            $idProg = $_GET['id'] ?? 0;
+
+            $unClient = getClientByLogin($_SESSION['login']);
+
+            $unProgramme = getProgById($idProg);
+
+            $unClient->setProgramme($unProgramme);
+
+            updateClient($unClient);
+
+            header('Location: ?page=accueil');
             break;
         }
     }
