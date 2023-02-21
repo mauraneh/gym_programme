@@ -6,6 +6,7 @@
         private string $libelle;
         private int $frequence;
         private string $description;
+        private array $sessions;
 
         /**
          * @param string $libelle
@@ -18,6 +19,23 @@
             $this->frequence = $frequence;
             $this->description = $description;
             $this->id = 0;
+            $this->sessions = array();
+        }
+
+        /**
+         * @return array
+         */
+        public function getSessions(): array
+        {
+            return $this->sessions;
+        }
+
+        /**
+         * @param array $sessions
+         */
+        public function setSessions(array $sessions): void
+        {
+            $this->sessions = $sessions;
         }
 
         /**

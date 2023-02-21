@@ -25,6 +25,7 @@
         </thead>
         <tbody>
         <?php
+
             foreach ($lesProgrammes as $unProgramme){
                 print('<tr>');
                 print('<td>'.$unProgramme->getLibelle().'</td>');
@@ -36,18 +37,34 @@
         ?>
         </tbody>
     </table>
-<article class="ficheProg">
+<article class="fiche">
     <?php
         foreach ($lesProgrammes as $unProgramme){
-            print('<br>');
-            print('<h2 class="ficheProg__title" id='.$unProgramme->getId().'>'.$unProgramme->getLibelle().'</h2>');
-            print('<p class="ficheProg__frequence">'.$unProgramme->getFrequence().' <span>jours</span></p>');
-            print('<p class="ficheProg__description">'.$unProgramme->getDescription().'</p>');
+            print('<div class="ficheProg">');
+            print('<h2 class="__title" id='.$unProgramme->getId().'>'.$unProgramme->getLibelle().'</h2>');
+            print('<p class="__frequence">'.$unProgramme->getFrequence().' <span>jours</span></p>');
+            print('<p class="__description">'.$unProgramme->getDescription().'</p>');
+            print('</div>');
+            foreach ($unProgramme->getSessions() as $uneSession){
+                print('<div class="ficheSessions">');
+                print('<p class="__libelle">'.$uneSession->getLibelle().'</p>');
+                print('</div>');
+                foreach ($uneSession->getExercices() as $unExercice){
+                    print('<div class="ficheExo">');
+                    print('<p class="__nom">'.$unExercice.'</p>');
+                    print('<p class="__serie">Nombre de série: '.$unExercice->getNbreSerie().'</p>');
+                    print('<p class="__rep">Nombre de répétitions: '.$unExercice->getNbreRep().'</p>');
+                    print('<p class="__pause">Temps de pause entre chaque série: '.$unExercice->getPAuse().'</p>');
+                    print('</div>');
+                }
+            }
             print("<a href=\"index.php?page=client&action=setProg&id={$unProgramme->getId()}\">Choisir</a>");
             print('<br>');
+
         }
     ?>
 </article>
+
     <footer>
         <?php require_once "includes/partials/footer.phtml"; ?>
     </footer>

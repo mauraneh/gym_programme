@@ -44,8 +44,8 @@
             require_once "includes/core/controllers/controller_poids.php";
             break;
         }
-        case 'blog':{
-            require_once "includes/core/controllers/controller_blog.php";
+        case 'guide':{
+            require_once "includes/core/controllers/controller_guide.php";
             break;
         }
         case 'contact':{

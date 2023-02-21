@@ -1,0 +1,52 @@
+<?php
+    ini_set('display_errors', 'on');
+    require_once "includes/core/globals.php";
+?>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <?php require "includes/partials/page_head.phtml"; ?>
+</head>
+<body>
+<header>
+    <?php require "includes/partials/page_header.phtml"; ?>
+</header>
+<main>
+    <nav>
+        <?php require_once "includes/partials/navbar.phtml"; ?>
+    </nav>
+    <header>
+        <h1> Guide des exercices </h1>
+    </header>
+
+    <form>
+        <label for="exercices">Liste des exercices: </label>
+        <select name="exercices" id="exercices">
+            <option value="0">-- Sélectionner --</option>
+            <?php
+                foreach ($lesExercices as $unExercice){
+                    print('<option value="#'.$unExercice->getId().'">'.$unExercice.'</option>');
+                }
+            ?>
+        </select>
+        <a href= #'<?php $unExercice->getId() ?> '>Rechercher</a>
+    </form>
+
+    <article>
+        <?php
+            foreach ($lesExercices as $unExercice){
+                print('<br>');
+                print('<h2 class="__title" id='.$unExercice->getId().'>'.$unExercice.'</h2>');
+                print('<p>'.$unExercice->getNbreRep().' <span> répétitions</span></p>');
+                print('<p>'.$unExercice->getNbreSerie().' <span> séries</span></p>');
+                print('<p>'.$unExercice->getPause().' <span> minutes de pause</span></p>');
+                print('<br>');
+            }
+        ?>
+    </article>
+    <footer>
+        <?php require_once "includes/partials/footer.phtml"; ?>
+    </footer>
+</main>
+</body>
+</html>

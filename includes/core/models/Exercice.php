@@ -101,5 +101,10 @@
             $this->nbre_serie = $nbre_serie;
         }
 
+        public function __toString(): string
+        {
+            return $this->nom_exo;
+        }
+
 
     }
