@@ -6,6 +6,7 @@
     private string $nom_exo;
     private int $nbre_rep, $nbre_serie;
     private float $pause;
+    private array $ressources;
 
         /**
          * @param int $id
@@ -19,6 +20,24 @@
             $this->nbre_rep = $nbre_rep;
             $this->nbre_serie=$nbre_serie;
             $this->pause = $pause;
+            $this->id = 0;
+            $this->ressources = array();
+        }
+
+        /**
+         * @return array
+         */
+        public function getRessources(): array
+        {
+            return $this->ressources;
+        }
+
+        /**
+         * @param array $ressources
+         */
+        public function setRessources(array $ressources): void
+        {
+            $this->ressources = $ressources;
         }
 
         /**

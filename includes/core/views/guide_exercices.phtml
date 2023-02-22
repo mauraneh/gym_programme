@@ -24,8 +24,8 @@
         <select name="exercices" id="exercices">
             <option value="0">-- Sélectionner --</option>
             <?php
-                foreach ($lesExercices as $unExercice){
-                    print('<option value="#'.$unExercice->getId().'">'.$unExercice.'</option>');
+                foreach ($lesExercices as $unExercice) {
+                    print('<option value="#' . $unExercice->getId() . '">' . $unExercice . '</option>');
                 }
             ?>
         </select>
@@ -34,6 +34,7 @@
 
     <article>
         <?php
+
             foreach ($lesExercices as $unExercice){
                 print('<br>');
                 print('<h2 class="__title" id='.$unExercice->getId().'>'.$unExercice.'</h2>');
@@ -41,12 +42,19 @@
                 print('<p>'.$unExercice->getNbreSerie().' <span> séries</span></p>');
                 print('<p>'.$unExercice->getPause().' <span> minutes de pause</span></p>');
                 print('<br>');
+                foreach ($lesExercices->getRessources() as $uneRessource) {
+                    print('<p class="__nom">' . $uneRessource->getNom() . '</p>');
+                    print('<p class="__url">' . $uneRessource->getUrl() . '</p>');
+                }
             }
+
         ?>
     </article>
     <footer>
+
         <?php require_once "includes/partials/footer.phtml"; ?>
     </footer>
+
 </main>
 </body>
 </html>

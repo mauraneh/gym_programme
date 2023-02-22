@@ -38,7 +38,7 @@
 
         $SQLStmt->closeCursor();
 
-        return ($mdp == $mdpBDD);
+        return (password_verify($mdp, $mdpBDD));
     }
     function getUserId(int $id): User{
         $conn = getConnexion();

@@ -36,10 +36,6 @@
 			require_once "includes/core/controllers/controller_programme.php";
 			break;
 		}
-        case 'session':{
-            require_once "includes/core/controllers/controller_session.php";
-            break;
-        }
         case 'poids':{
             require_once "includes/core/controllers/controller_poids.php";
             break;

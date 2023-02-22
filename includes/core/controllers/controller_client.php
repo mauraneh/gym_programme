@@ -2,6 +2,7 @@
     require_once 'includes/core/models/daoClient.php';
     require_once 'includes/core/models/daoGenre.php';
     require_once 'includes/core/models/daoProgramme.php';
+    require_once 'includes/core/models/User.php';
 
     switch ($action) {
         case 'add':{
@@ -20,7 +21,8 @@
                         intval($_POST['taille']),
                         $_POST['telephone'],
                         getGenreById($_POST['genre']),
-                        new User($_POST['login'], $_POST['mdp'])
+                        new User($_POST['login'], password_hash($_POST['mdp'], PASSWORD_DEFAULT))
+
                     );
 
                     if (insertClient($unClient)){

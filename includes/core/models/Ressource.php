@@ -15,14 +15,14 @@
          * @param Exercice|null $exercice
          * @param Type_ressource|null $typeRessource
          */
-        public function __construct(int $id, string $nom, string $contenu, string $url, ?Exercice $exercice, ?Type_ressource $typeRessource)
+        public function __construct(string $nom, string $contenu, string $url, ?Exercice $exercice = null, Type_ressource $typeRessource = null)
         {
-            $this->id = $id;
             $this->nom = $nom;
             $this->contenu = $contenu;
             $this->url = $url;
             $this->exercice = $exercice;
             $this->typeRessource = $typeRessource;
+            $this->id=0;
         }
 
         /**
@@ -90,33 +90,33 @@
         }
 
         /**
-         * @return Exercice|null
+         * @return Exercice
          */
-        public function getExercice(): ?Exercice
+        public function getExercice(): Exercice
         {
             return $this->exercice;
         }
 
         /**
-         * @param Exercice|null $exercice
+         * @param Exercice $exercice
          */
-        public function setExercice(?Exercice $exercice): void
+        public function setExercice(Exercice $exercice): void
         {
             $this->exercice = $exercice;
         }
 
         /**
-         * @return Type_ressource|null
+         * @return Type_ressource
          */
-        public function getTypeRessource(): ?Type_ressource
+        public function getTypeRessource(): Type_ressource
         {
             return $this->typeRessource;
         }
 
         /**
-         * @param Type_ressource|null $typeRessource
+         * @param Type_ressource $typeRessource
          */
-        public function setTypeRessource(?Type_ressource $typeRessource): void
+        public function setTypeRessource(Type_ressource $typeRessource): void
         {
             $this->typeRessource = $typeRessource;
         }

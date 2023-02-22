@@ -7,8 +7,8 @@
         $conn = getConnexion();
 
         $SQLQuery = "SELECT r.id, r.nom, r.contenu, r.url
-			FROM ressources r
-            INNER JOIN exercices exo ON exo.id_ressources = r.id
+			FROM ressource r
+            INNER JOIN exercices exo ON exo.id = r.id
 			WHERE id_exercices = :idExercices";
 
         $SQLStmt = $conn->prepare($SQLQuery);
