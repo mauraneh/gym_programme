@@ -1,0 +1,5 @@
+<?php
+    header('Access-Control-Allow-Origin: *'); //Pour éviter les erreurs CORS
+    header('Content-Type: application/json; charset=utf-8');
+    http_response_code(200);
+    print(json_encode($lesInfosAEnvoyer));

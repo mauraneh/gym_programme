@@ -2,13 +2,13 @@
     require_once 'includes/core/models/bdd.php';
     require_once 'includes/core/models/Ressource.php';
 
-    function getAllRessources(int $idExercices): array
+    function getAllRessourcesByExo(int $idExercices): array
     {
         $conn = getConnexion();
 
         $SQLQuery = "SELECT r.id, r.nom, r.contenu, r.url
 			FROM ressource r
-            INNER JOIN exercices exo ON exo.id = r.id
+            INNER JOIN exercices exo ON exo.id = r.id_exercices
 			WHERE id_exercices = :idExercices";
 
         $SQLStmt = $conn->prepare($SQLQuery);
@@ -22,7 +22,7 @@
 
             $uneRessource->setId($SQLRow['id']);
 
-            $listeExercices[] = $uneRessource;
+            $lesRessources[] = $uneRessource;
 
         }
 

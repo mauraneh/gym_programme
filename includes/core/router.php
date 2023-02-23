@@ -36,6 +36,10 @@
 			require_once "includes/core/controllers/controller_programme.php";
 			break;
 		}
+        case 'api':{
+            require_once "includes/core/controllers/controller_api.php";
+            break;
+        }
         case 'poids':{
             require_once "includes/core/controllers/controller_poids.php";
             break;

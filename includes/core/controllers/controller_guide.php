@@ -1,11 +1,12 @@
 <?php
-    require_once 'includes/core/models/daoExercice.php';
-    require_once 'includes/core/models/daoRessources.php';
 
-    $lesExercices = getListeExo();
+                require_once 'includes/core/models/daoExercice.php';
+                require_once 'includes/core/models/daoRessources.php';
 
-    foreach ($lesExercices as $unExercice){
-        $unExercice->setRessources(getAllRessources($unExercice->getId()));
-    }
+                $lesExercices = getListeExo();
 
-    require_once 'includes/core/views/guide_exercices.phtml';
+                foreach ($lesExercices as $unExercice) {
+                    $unExercice->setRessources(getAllRessourcesByExo($unExercice->getId()));
+                }
+
+                require_once 'includes/core/views/guide_exercices.phtml';
