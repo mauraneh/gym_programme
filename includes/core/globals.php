@@ -1,2 +1,2 @@
 <?php
-const TITRE = 'Mon site de gymrat';
+const TITRE = 'GYMRAT Programme';

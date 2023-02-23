@@ -16,25 +16,29 @@
     <!--------------- CONNECTION ---------------------------->
     <article class="connectForm">
         <form action="" method="post" enctype="multipart/form-data">
-            <div class="cont">
-                <header class="headForm">
+            <div class="connectForm__cont">
+                <header class="connectForm__head">
                     <h1>Se connecter</h1>
                     <p>Connecte toi ici avec ton nom d'utilisateur et ton mot de passe.</p>
                 </header>
-                <div class="fieldForm">
-                    <!--   User -->
-                    <span class="inputItem">
+                <div class="connectForm__field">
+                    <!------  User ------->
+                    <div class="connectForm__user">
+                    <span class="connectForm__inputItem">
                         <i class="fa fa-user-circle"></i>
                     </span>
                     <input
                         name="login"
                         id="login"
                         type="text"
-                        placeholder="nom d'utilisateur"
+                        placeholder="Nom d'utilisateur"
                         required
                     />
-                    <!--   Password -->
-                    <span class="inputItem">
+                    </div>
+
+                    <!-------   Password -------->
+                    <div class="connectForm__mdp">
+                    <span class="connectForm__inputItem">
                          <i class="fa fa-key"></i>
                      </span>
                     <input
@@ -46,17 +50,15 @@
                     />
                     <!-- Show/hide password  -->
                     <span>
-                <i class="fa fa-eye" id="eye"></i>
-              </span>
-                    <!-- button LogIn -->
-                    <button class="logIn" type="submit">Se connecter</button>
+                     <i class="fa fa-eye" id="eye"></i>
+                    </span>
+                    </div>
+
                 </div>
-                <!-- other buttons -->
-                <div class="other">
-                    <!-- Forgot Password button-->
-                    <a href="index.php?page=client&action=resetmdp">
-                        <button class="btn submits frgtPass" type="button">Mot de passe oublié?</button>
-                    </a>
+                <div class="connectForm__btns">
+                    <!-- button LogIn -->
+                    <button class="btn submits logIn" type="submit">Se connecter</button>
+
                     <!-- Sign Up button -->
                     <a href="index.php?page=client&action=add">
                         <button class="btn submits signUp" type="button">

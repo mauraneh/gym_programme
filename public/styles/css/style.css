@@ -44,6 +44,19 @@ table {
   border-spacing: 0;
 }
 
+html, body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
 .logoSite img {
   width: 12rem;
 }
@@ -91,6 +104,52 @@ table {
   line-height: 1.2em;
 }
 
+.connectForm {
+  width: 20rem;
+  min-height: 400px;
+  height: auto;
+  border-radius: 5px;
+  margin: 2rem auto;
+  box-shadow: 0 9px 50px hsla(109deg, 32%, 30%, 0.31);
+  padding: 1rem;
+  background-image: linear-gradient(-225deg, #eeeeee 50%, #dcdada 50%);
+  /* Show/hide password Font Icon */
+}
+.connectForm__cont, .connectForm__btns {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin: 0 auto;
+}
+.connectForm__head {
+  margin: 1rem auto 1rem auto;
+  text-align: center;
+}
+.connectForm__head > h1 {
+  font-size: 2rem;
+  color: #000;
+}
+.connectForm__head > p {
+  letter-spacing: 0.05em;
+  color: #6e7781;
+  font-size: 1rem;
+  font-style: italic;
+}
+.connectForm__inputItem {
+  background: none;
+  color: #000;
+  padding: 14.5px 0px 15px 9px;
+  border-radius: 5px 0px 0px 5px;
+}
+.connectForm #eye {
+  background: none;
+  color: #000;
+  cursor: pointer;
+}
+.connectForm__user > input {
+  margin: 1rem 0;
+}
+
 .cont_btn {
   display: flex;
   flex-direction: column;
@@ -101,7 +160,7 @@ table {
 
 .btn {
   font-family: "Open Sans", sans-serif;
-  font-size: 1.5rem;
+  font-size: 1rem;
   letter-spacing: 2px;
   text-decoration: none;
   text-transform: uppercase;
@@ -127,9 +186,22 @@ table {
 }
 
 .footer {
-  position: static;
-  bottom: 0; /* on le colle en bas */
-  width: 100%;
+  flex-shrink: 0;
+}
+.footer__copyright {
+  color: #dcdada;
+  text-align: center;
+  margin: 2rem;
+}
+.footer__list {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  text-align: center;
+}
+.footer__list > a {
+  color: #6e7781;
+  margin: 0.5rem;
 }
 
 @media (min-width: 768px) {

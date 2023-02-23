@@ -12,6 +12,11 @@
   align-items: center;
   justify-content: space-between;
 }
+@mixin displayFlexCenterEvenly{
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
 @mixin displayFlexColumn{
   display: flex;
   flex-direction: column;
@@ -21,7 +26,19 @@
   display: flex;
   justify-content: flex-end;
 }
+//---------------BODY-----------------
+html, body {
+  height: 100%;
+}
 
+body {
+  display: flex;
+  flex-direction: column;
+}
+//---------------MAIN-----------------
+main {
+  flex: 1 0 auto;
+}
 //------------LOGO----------------
 .logoSite img{
   width: 12rem;
@@ -68,14 +85,63 @@
     line-height:1.2em;
    }
 }
+
 //----------LOG IN OR SIGN UP PAGE -------------------
+.connectForm {
+  width: 20rem;
+  min-height: 400px;
+  height: auto;
+  border-radius: 5px;
+  margin: 2rem auto;
+  box-shadow: 0 9px 50px hsla(109, 32%, 30%, 0.31);
+  padding: 1rem;
+  background-image: linear-gradient(-225deg, $background-header 50%, $color-bg-lighter 50%);
+  &__cont, &__btns{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin: 0 auto;
+  }
+  &__head{
+    margin: 1rem auto 1rem auto;
+    text-align: center;
+    >h1{
+      font-size: 2rem;
+      color: $color-logo-black;
+    }
+    >p{
+      letter-spacing: 0.05em;
+      color: $color-frgn-text;
+      font-size: 1rem;
+      font-style: italic;
+    }
+  }
+  &__inputItem{
+    background: none;
+    color: $color-logo-black;
+    padding: 14.5px 0px 15px 9px;
+    border-radius: 5px 0px 0px 5px;
+  }
+  /* Show/hide password Font Icon */
+  #eye {
+    background: none;
+    color: $color-logo-black;
+    cursor: pointer;
+  }
+  &__user{
+    >input{
+      margin: 1rem 0;
+    }
+  }
+}
+
 .cont_btn{
   @include displayFlexColumn;
   @include displayFlexCenter;
 }
 .btn{
   font-family: "Open Sans", sans-serif;
-  font-size: 1.5rem;
+  font-size: 1rem;
   letter-spacing: 2px;
   text-decoration: none;
   text-transform: uppercase;
@@ -103,9 +169,20 @@
 
 //-------------FOOTER-----------------------------------
 .footer{
-  position: static;
-  bottom:0;  /* on le colle en bas */
-  width:100%;
+  flex-shrink: 0;
+    &__copyright{
+      color: $color-bg-light;
+      text-align: center;
+      margin: 2rem;
+    }
+  &__list{
+    @include displayFlexCenterEvenly;
+    text-align: center;
+    > a{
+      color: $color-frgn-text;
+      margin: .5rem;
+    }
+  }
 }
 //--------------------MEDIA QUERIES----------------------
 @media (min-width: 768px) {
