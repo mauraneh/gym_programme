@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css?family=Fjalla+One&display=swap");
 *, *:before, *:after {
   box-sizing: border-box;
 }
@@ -79,32 +80,81 @@ main {
   font-weight: 900;
 }
 
+.appear {
+  display: block;
+}
+
+.display {
+  display: none;
+}
+
+.hide {
+  display: none;
+}
+
+.titleH1 {
+  display: none;
+}
+
+.userProfil {
+  position: fixed;
+  bottom: 111px;
+  right: 25px;
+}
+.userProfil__logo img {
+  width: 8rem;
+}
+.userProfil__userName {
+  text-transform: uppercase;
+  text-align: center;
+}
+.userProfil__list {
+  font-size: 1rem;
+  color: #fff;
+  margin: 0 1rem;
+  text-transform: uppercase;
+  text-align: center;
+}
+.userProfil__menu {
+  width: 20rem;
+  position: absolute;
+  bottom: 128px;
+  left: -110px;
+}
+
 .navbar {
+  font-family: "Fjalla One";
   position: sticky;
   top: 0;
-  margin-bottom: 1rem;
   padding: 0.6rem;
   background-color: #000;
 }
 .navbar__button {
-  color: #dcdada;
-  font-size: 3rem;
+  color: #fff;
+  font-size: 2.5rem;
   padding: 0.6rem;
 }
-.navbar__list {
-  display: none;
+.navbar__button span {
+  margin: 0 1rem;
 }
 .navbar__link {
   font-size: 1.5rem;
-  color: #eeeeee;
+  color: #fff;
   display: inline-block;
   margin: 0 1rem;
   text-transform: uppercase;
   text-align: center;
   line-height: 1.2em;
 }
+.navbar__link a {
+  padding: 1rem 0;
+}
 
-.connectForm {
+.required {
+  color: #ff0000;
+}
+
+.connectForm, .newcontact__form {
   width: 20rem;
   min-height: 400px;
   height: auto;
@@ -113,6 +163,7 @@ main {
   box-shadow: 0 9px 50px hsla(109deg, 32%, 30%, 0.31);
   padding: 1rem;
   background-image: linear-gradient(-225deg, #eeeeee 50%, #dcdada 50%);
+  font-family: "Fjalla One";
   /* Show/hide password Font Icon */
 }
 .connectForm__cont, .connectForm__btns {
@@ -136,21 +187,61 @@ main {
   font-style: italic;
 }
 .connectForm__inputItem {
-  background: none;
+  background: #fff;
   color: #000;
-  padding: 14.5px 0px 15px 9px;
+  padding: 14px 0px 15px 9px;
   border-radius: 5px 0px 0px 5px;
 }
-.connectForm #eye {
+.connectForm #eye, .newcontact__form #eye {
   background: none;
   color: #000;
   cursor: pointer;
 }
-.connectForm__user > input {
+.connectForm__user > input, .newcontact__form .connectForm__user > select {
   margin: 1rem 0;
+}
+.connectForm__user > input, .newcontact__form .connectForm__user > select, .connectForm__mdp > input, .newcontact__form .connectForm__mdp > select {
+  margin-top: 2rem;
+  padding: 16px;
+  font-size: 1rem;
+  color: #6e7781;
+  outline: none;
+  border: none;
+  border-radius: 0px 5px 5px 0px;
+  transition: 0.2s linear;
+}
+.connectForm__user > input:focus, .newcontact__form .connectForm__user > select:focus, .connectForm__mdp > input:focus, .newcontact__form .connectForm__mdp > select:focus {
+  transform: translateX(-2px);
+  border-radius: 5px;
+}
+
+.newcontact__form {
+  font-family: "Fjalla One";
+}
+.newcontact__form input, .newcontact__form select {
+  display: block;
+  width: 60%;
+  font-size: 1rem;
+  border: none;
+  margin: 0.5rem;
+  border-bottom: 2px solid #fff;
+  background: transparent;
+  min-width: 250px;
+  padding-left: 5px;
+  outline: none;
+  color: rgb(0, 0, 0);
+}
+.newcontact__form input:focus, .newcontact__form select:focus {
+  border-bottom: 2px solid #ff0000;
+}
+.newcontact__form label {
+  color: #6e7781;
+  margin-top: 1rem;
 }
 
 .cont_btn {
+  position: relative;
+  top: 0;
   display: flex;
   flex-direction: column;
   display: flex;
@@ -210,27 +301,82 @@ main {
   }
 }
 @media screen and (min-width: 992px) {
-  .navbar__list {
-    display: flex;
-  }
-  .navbar__button {
+  .appear {
     display: none;
   }
-  .navbar__link::after, .navbar__link::before {
+  .display {
     display: block;
-    content: "";
-    border-bottom: solid 3px #eeeeee;
-    transform: scaleX(0);
-    transition: transform 250ms ease-in-out;
   }
-  .navbar__link::before {
+  .navbar__list {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .navbar__link {
+    font-size: 1.5rem;
+    color: #eeeeee;
+    display: inline-block;
+    margin: 0 1rem;
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 1.2em;
+  }
+  .newcontact__form {
+    width: 50rem;
+  }
+  .newcontact__form div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+    margin: 0 auto;
+  }
+  .titleH1 {
+    display: grid;
+    place-content: center;
+    background-color: #000;
+    min-height: 9vh;
+    font-family: "Oswald", sans-serif;
+    font-size: clamp(1.5rem, 1rem + 3vw, 3rem);
+    font-weight: 700;
+    text-transform: uppercase;
+    color: hsl(0deg, 0%, 100%);
+  }
+  .titleH1 > div {
+    grid-area: 1/1/-1/-1;
+  }
+  .titleH1 .top {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 48%, 0% 58%);
+  }
+  .titleH1 .bottom {
+    clip-path: polygon(0% 60%, 100% 50%, 100% 100%, 0% 100%);
+    color: transparent;
+    background: -webkit-linear-gradient(177deg, black 53%, hsl(0deg, 0%, 100%) 65%);
+    background: linear-gradient(177deg, black 53%, hsl(0deg, 0%, 100%) 65%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    transform: translateX(-0.02em);
+  }
+  .userProfil {
+    position: fixed;
+    bottom: 111px;
+    right: 25px;
+  }
+  .userProfil__logo img {
+    width: 8rem;
+  }
+  .userProfil__list {
+    font-size: 1.5rem;
+    color: #fff;
+    margin: 0 1rem;
+    text-transform: uppercase;
+    text-align: center;
+  }
+  .userProfil__menu {
+    width: 40rem;
     position: absolute;
-    bottom: 2em;
-    left: 0;
-    width: 100%;
-  }
-  .navbar__link:hover:after, .navbar__link:hover:before {
-    transform: scaleX(1);
+    bottom: 128px;
+    left: -320px;
   }
 }
 

@@ -12,13 +12,16 @@
     <?php require "includes/partials/page_header.phtml"; ?>
 </header>
 <main>
+    <section class="titleH1">
+        <div class="top">Se connecter</div>
+        <div class="bottom" aria-hidden="true">Se connecter</div>
+    </section>
 
     <!--------------- CONNECTION ---------------------------->
     <article class="connectForm">
         <form action="" method="post" enctype="multipart/form-data">
             <div class="connectForm__cont">
                 <header class="connectForm__head">
-                    <h1>Se connecter</h1>
                     <p>Connecte toi ici avec ton nom d'utilisateur et ton mot de passe.</p>
                 </header>
                 <div class="connectForm__field">
@@ -28,6 +31,7 @@
                         <i class="fa fa-user-circle"></i>
                     </span>
                     <input
+                        class="connectForm__input"
                         name="login"
                         id="login"
                         type="text"
@@ -42,6 +46,7 @@
                          <i class="fa fa-key"></i>
                      </span>
                     <input
+                        class="connectForm__input"
                         name="mdp"
                         type="password"
                         placeholder="Mot de passe"

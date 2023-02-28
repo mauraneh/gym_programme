@@ -1,0 +1,15 @@
+<div class="userProfil">
+    <div class="userProfil__menu hide">
+        <ul class="userProfil__list">
+            <li><a href="index.php?page=user&action=logout"><i class="fa-solid fa-right-from-bracket"></i> Déconnecte-toi</a></li>
+            <li><a href="index.php?page=user&action=update"><i class="fa-solid fa-pen-to-square"></i> Modifie-toi</a></li>
+            <li><a href="index.php?page=user&action=delete"><i class="fa-solid fa-trash"></i> Supprime-toi</a></li>
+        </ul>
+    </div>
+
+    <div class="userProfil__btn">
+        <span class="userProfil__logo"><img src="public/medias/gymratclean.png" alt="logo utilisateur"></span>
+            <h2 class="userProfil__userName"><?= $_SESSION['login'] ?></h2>
+    </div>
+
+</div>

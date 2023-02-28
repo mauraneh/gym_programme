@@ -2,7 +2,7 @@
     require_once 'includes/core/models/daoClient.php';
     require_once 'includes/core/models/daoGenre.php';
     require_once 'includes/core/models/daoProgramme.php';
-    require_once 'includes/core/models/User.php';
+    require_once 'includes/core/models/daoUser.php';
 
     switch ($action) {
         case 'add':{
@@ -22,14 +22,21 @@
                         $_POST['telephone'],
                         getGenreById($_POST['genre']),
                         new User($_POST['login'], password_hash($_POST['mdp'], PASSWORD_DEFAULT))
-
                     );
+                    $mdpConfirm = $_POST['mdpConfirm'];
 
-                    if (insertClient($unClient)){
-                        header('Location: index.php?page=user&action=login');
+                    if(userExists($_POST['login'])){
+                        $messageLog= 'Ce login existe déjà';
+                    }else if(strcmp($_POST['mdp'], $mdpConfirm) !== 0) {
+                        $messageMdp= 'Le mot de pass ne correspond pas';
                     }else{
-                        $message = "Erreur d'enregistrement !";
+                        if (insertClient($unClient)){
+                            header('Location: index.php?page=user&action=login');
+                        }else{
+                            $message = "Erreur d'enregistrement !";
+                        }
                     }
+
                 }
                 $lesGenres = getAllGenre();
 

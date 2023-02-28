@@ -16,11 +16,12 @@
         <?php require_once "includes/partials/navbar.phtml"; ?>
     </nav>
 
-    <header>
-        <h1> ACCUEIL DU GYMRAT</h1>
-    </header>
+    <section class="titleH1">
+        <div class="top">Accueil</div>
+        <div class="bottom" aria-hidden="true">Accueil</div>
+    </section>
     <div>
-        <h2>Bonjour gymrat <?= $_SESSION['login'] ?></h2>
+        <h2>Bonjour <?= $_SESSION['login'] ?></h2>
     </div>
     <!-- PROGRAMME ------------------>
     <article>
@@ -38,11 +39,15 @@
             ?>
         </div>
     </article>
-
     <footer>
-        <?php require_once "includes/partials/footer.phtml"; ?>
+        <?php
+            require_once "includes/partials/userMenu.phtml";
+            ?>
     </footer>
 </main>
+<footer>
+    <?php require_once "includes/partials/footer.phtml"; ?>
+</footer>
+<script src="public/scripts/scriptMenu.js"></script>
 </body>
-
 </html>

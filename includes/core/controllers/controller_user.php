@@ -9,6 +9,7 @@ switch ($action){
             $loginUsed = $_POST['login'];
             $mdpUsed = $_POST['mdp'];
 
+
             if(userExists($loginUsed)){
                 if(validedAuth($loginUsed, $mdpUsed)){
                     $_SESSION['login'] = $loginUsed;

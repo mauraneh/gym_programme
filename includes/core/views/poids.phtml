@@ -15,9 +15,12 @@
 
 <main>
     <?php require "includes/partials/navbar.phtml"; ?>
-    <header>
-        <h1> POIDS DU GYMRAT</h1>
-    </header>
+
+    <section class="titleH1">
+        <div class="top">Poids</div>
+        <div class="bottom" aria-hidden="true">Poids</div>
+    </section>
+
     <div class="poids_ref">
         <?php
             print('Ton poids de départ est: '.$unClient->getPoidsRef().'kg');

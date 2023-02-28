@@ -59,33 +59,81 @@ main {
       }
   }
 }
-
-//--------------------MENU-------------------
+//----------------APPEAR x DISPLAY---------------------
+.appear {
+  display: block;
+}
+.display{
+  display: none;
+}
+.hide{
+  display: none;
+}
+//--------------------H1---------------------
+.titleH1 {
+  display: none;
+}
+//-------------------- USER MENU------------------
+.userProfil{
+  position: fixed;
+  bottom: 111px;
+  right: 25px;
+  &__logo{
+    img{
+      width: 8rem;
+    }
+  }
+  &__userName{
+    text-transform:uppercase;
+    text-align:center;
+  }
+  &__list{
+    font-size: 1rem;
+    color: $color-white;
+    margin:0 1rem;
+    text-transform:uppercase;
+    text-align:center;
+  }
+  &__menu{
+    width: 20rem;
+    position: absolute;
+    bottom: 128px;
+    left: -110px;
+  }
+}
+//--------------------MENU NAV BAR-------------------
 .navbar{
+  font-family: $font-face;
   position: sticky;
   top: 0;
-  margin-bottom: 1rem;
   padding: .6rem;
   background-color: $color-logo-black;
   &__button{
-    color: $color-bg-lighter;
-    font-size: 3rem;
+    color: $color-white;
+    font-size: 2.5rem;
     padding: .6rem;
-  }
-  &__list{
-    display: none;
+    span{
+      margin: 0 1rem;
+    }
   }
   &__link{
     font-size: 1.5rem;
-    color: $background-header;
+    color: $color-white;
     display:inline-block;
     margin:0 1rem;
     text-transform:uppercase;
     text-align:center;
     line-height:1.2em;
+    a{
+      padding: 1rem 0;
+    }
    }
 }
 
+//----------- REQUIRED---------------------------
+.required{
+  color: $required;
+}
 //----------LOG IN OR SIGN UP PAGE -------------------
 .connectForm {
   width: 20rem;
@@ -96,6 +144,7 @@ main {
   box-shadow: 0 9px 50px hsla(109, 32%, 30%, 0.31);
   padding: 1rem;
   background-image: linear-gradient(-225deg, $background-header 50%, $color-bg-lighter 50%);
+  font-family: $font-face;
   &__cont, &__btns{
     display: flex;
     justify-content: space-around;
@@ -117,9 +166,9 @@ main {
     }
   }
   &__inputItem{
-    background: none;
+    background: #fff;
     color: $color-logo-black;
-    padding: 14.5px 0px 15px 9px;
+    padding: 14px 0px 15px 9px;
     border-radius: 5px 0px 0px 5px;
   }
   /* Show/hide password Font Icon */
@@ -133,9 +182,55 @@ main {
       margin: 1rem 0;
     }
   }
+  &__user, &__mdp{
+    >input{
+    margin-top: 2rem;
+    padding: 16px;
+    font-size: 1rem;
+    color: $color-frgn-text;
+    outline: none;
+    border: none;
+    border-radius: 0px 5px 5px 0px;
+    transition: 0.2s linear;
+      &:focus {
+        transform: translateX(-2px);
+        border-radius: 5px;
+      }
+    }
+  }
 }
+//---------------NEW CONTACT FORM ---------------
+.newcontact__form{
+    @extend .connectForm;
+  font-family: $font-face;
 
+  input{
+    display: block;
+    width: 60%;
+    font-size: 1rem;
+    border: none;
+    margin: .5rem;
+    border-bottom: 2px solid $color-white;
+    background: transparent;
+    min-width: 250px;
+    padding-left: 5px;
+    outline: none;
+    color: rgba(0,0,0,1);
+    &:focus{
+      border-bottom: 2px solid $required;
+    }
+  }
+  select{
+    @extend input;
+  }
+  label{
+    color: $color-frgn-text;
+    margin-top: 1rem;
+  }
+}
 .cont_btn{
+  position: relative;
+  top: 0;
   @include displayFlexColumn;
   @include displayFlexCenter;
 }
@@ -190,30 +285,83 @@ main {
     padding: 0.25em 0.75em;
   }
 }
-
+//Big screen
 @media screen and (min-width: 992px) {
+  .appear{
+    display: none;
+  }
+  .display{
+    display: block;
+  }
   .navbar{
     &__list{
-      display: flex;
-    }
-    &__button{
-      display: none;
+      @include displayFlexCenter;
     }
     &__link{
-      &::after, &::before {
-        display:block;
-        content: '';
-        border-bottom: solid 3px $background-header;
-        transform: scaleX(0);
-        transition: transform 250ms ease-in-out;
-      }
-      &::before{
-        position:absolute;
-        bottom:2em; left:0;
-        width:100%;
-      }
-      &:hover:after, &:hover:before { transform: scaleX(1); }
+      font-size: 1.5rem;
+      color: $background-header;
+      display:inline-block;
+      margin:0 1rem;
+      text-transform:uppercase;
+      text-align:center;
+      line-height:1.2em;
     }
   }
+  .newcontact__form {
+    width: 50rem;
+    div{
+      @include displayFlexCenterBetween;
+      padding: 1rem;
+      margin: 0 auto;
+    }
+  }
+  .titleH1 {
+    display: grid;
+    place-content: center;
+    background-color: $color-logo-black;
+    min-height: 9vh;
+    font-family: "Oswald", sans-serif;
+    font-size: clamp(1.5rem, 1rem + 3vw, 3rem);
+    font-weight: 700;
+    text-transform: uppercase;
+    color: $color-grey;
+    > div {
+      grid-area: 1/1/-1/-1;
+    }
+    .top {
+      clip-path: polygon(0% 0%, 100% 0%, 100% 48%, 0% 58%);
+    }
+    .bottom {
+      clip-path: polygon(0% 60%, 100% 50%, 100% 100%, 0% 100%);
+      color: transparent;
+      background: -webkit-linear-gradient(177deg, black 53%, $color-grey 65%);
+      background: linear-gradient(177deg, black 53%, $color-grey 65%);
+      background-clip: text;
+      -webkit-background-clip: text;
+      transform: translateX(-0.02em);
+    }
+  }
+.userProfil{
+  position: fixed;
+  bottom: 111px;
+  right: 25px;
+  &__logo{
+    img{
+      width: 8rem;
+    }
+  }
+  &__list{
+    font-size: 1.5rem;
+    color: $color-white;
+    margin:0 1rem;
+    text-transform:uppercase;
+    text-align:center;
+  }
+  &__menu{
+    width: 40rem;
+    position: absolute;
+    bottom: 128px;
+    left: -320px;
+  }
 }
-
+}

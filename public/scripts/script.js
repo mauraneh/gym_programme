@@ -1,46 +1,4 @@
 
-//---------------------------- AFFICHER MDP ----------------------
-/*function show(){
-    let p = document.querySelector('#mdp');
-    p.setAttribute('type', 'text');
-};
-// Hide pwd
-function hide(){
-    let p = document.querySelector('#mdp');
-    p.setAttribute('type' , 'password');
-}
-let pwdshown = 0;
-let eyeBtn = document.querySelector('#eye');
-
- eyeBtn.addEventListener('click', function(){
-    if(pwdshown === 0){
-        pwdshown = 1;
-        show();
-    } else{
-        pwdshown = 0;
-        hide();
-    }
-}, false);
-
-//----------------------------MENU BURGER ----------------------
-const burger = document.getElementById("burgerHide");
-const menu = document.getElementById("menuHide");
-const btnBurger = document.getElementById("btnBurger");
-const btnMenu = document.getElementById("btnMenu");
-console.log(burger);
-// ecoutes
-
-btnBurger.addEventListener("click", hideBurger);
-btnMenu.addEventListener("click", hideMenu);
-
-// functions
-function hideBurger() {
-    burger.classList.toggle("burgerHide");
-}
-
-function hideMenu() {
-    menu.classList.toggle("menuHide");
-}*/
 
 //--------------------- GRAPH POIDS   -------------------------
 
@@ -71,6 +29,28 @@ const graphCanvas = new Chart(
     config
 );
 
-//--------------------- FETCH POIDS  -------------------------
+//---------------------GUIDE PROGRAMME -------------------------
+document.querySelector('#exercices').addEventListener('change', function(){
+    let id = document.querySelector('#exercices').selectedOptions[0].value;
+    console.log(id);
+    fetch('index.php?page=api&action=listeRessource&id=' + id)
+        .then(function (response){
+            document.querySelector('#infosExercices').innerHTML = '';
+            response.json().then(function (data){
 
+                let titreVideo = document.createElement('h3');
+                titreVideo.innerText = data[0].nom;
+                document.querySelector('#infosExercices').appendChild(titreVideo);
 
+//TODO: faire un foreach data qui parcours toutes les ressources et en focntion du type de ressource faire un if en
+
+                let video = document.createElement("iframe");
+                // récupérer l'URL de la vidéo à partir de la base de données
+                let urlVideo = data[0].url;
+                // assigner l'URL à la propriété src de l'élément iframe
+                video.setAttribute('src', urlVideo);
+                document.querySelector('#infosExercices').appendChild(video);
+
+            })
+        })
+});
