@@ -15,35 +15,70 @@
     <nav>
         <?php require_once "includes/partials/navbar.phtml"; ?>
     </nav>
-
-    <section class="titleH1">
+    <section class="title">
+        <h1>
         <div class="top">Accueil</div>
         <div class="bottom" aria-hidden="true">Accueil</div>
+        </h1>
+        <h2>Bonjour <span class="underline"><?= $_SESSION['login'] ?></span></h2>
     </section>
-    <div>
-        <h2>Bonjour <?= $_SESSION['login'] ?></h2>
-    </div>
+
+<div class="home">
+    <div class="home__container">
+        <div class="home__cards">
     <!-- PROGRAMME ------------------>
-    <article>
-        <p>Ton programme de gymrat:</p>
-        <div>
+    <section class="home__programme card">
+        <div class="icon"><i class="fa-solid fa-list-ul"></i></div>
+        <h3 class="subTitle">Le programme de gymrat que t'as choisi: </h3>
+        <div class="text">
             <?php
                 if($unClient->getProgramme()!= null){
                     print('<p>'.$unClient->getProgramme()->getLibelle().'</p>');
-                    print('<p>'.$unClient->getProgramme()->getFrequence().' <span>jours</span></p>');
                     print('<p>'.$unClient->getProgramme()->getDescription().'</p>');
                 }else{
-                    print('<p>Trouver un programme</p>');
+                    print('<p class="text">Trouver un programme</p>');
                     print('<a class="buttonAdd" href="index.php?page=programme"><i class="fa-solid fa-dumbbell"></i></a>');
                 }
             ?>
         </div>
-    </article>
+        <div class="btn">
+            <a href="index.php?page=programme"><i class="fa-solid fa-dumbbell"></i>Tous les programmes</a>
+        </div>
+    </section>
+<!----------------- SECTION DAYS--------------->
+        <section class="home__days card">
+            <div class="icon"><i class="fa-solid fa-retweet"></i></div>
+            <h3 class="subTitle">Prêt pour s'entrainer</h3>
+            <div class="text">
+            <?php
+                    print('<p>'.$unClient->getProgramme()->getFrequence().' <span>jours</span></p>');
+            ?>
+            </div>
+        </section>
+
+    <section class="home_weight card">
+        <div class="icon"><i class="fa-solid fa-weight-scale"></i></div>
+        <h3 class="subTitle">Ton poids ça donne ça: </h3>
+        <div class="text">
+        <?php
+        print('<p id="home__weightStart">Ton poids de référence: '.$unClient->getPoidsRef().' kg</p>');
+        print('<p id="home__weightNow">Ton poids actuel: '.$unPoids->getValeur().' kg</p>');
+        print('<p id="home__weightGoal">Ton objectif de poids: '.$unClient->getPoidsVise().' kg</p>');
+        print('<p id="home__weightLeft">Il te reste '.($unPoids->getValeur()) - ($unClient->getPoidsVise()).'kg avant ton objectif</p>');
+        ?>
+        </div>
+        <div class="btn">
+            <a href="index.php?page=poids"><i class="fa-solid fa-dumbbell"></i>Ta courbe de poids</a>
+        </div>
+    </section>
+    </div>
     <footer>
         <?php
             require_once "includes/partials/userMenu.phtml";
             ?>
     </footer>
+    </div>
+</div>
 </main>
 <footer>
     <?php require_once "includes/partials/footer.phtml"; ?>

@@ -9,7 +9,10 @@
     $unClient = getClientByLogin($_SESSION['login']);
 
     $lesClients = getAllClient();
+
     $lesPoids = getAllPoids($unClient->getId());
+
+    $unPoids = getLastPoids($unClient->getId());
 
     require_once("includes/core/views/accueil.phtml");
 

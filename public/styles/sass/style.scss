@@ -48,7 +48,7 @@ main {
   @include displayFlexCenter;
   width: 100%;
   padding: 2rem;
-  background-color: $background-header;
+  background-color: $color-background;
 
   .iconLogHead {
     @include displayFlexColumn;
@@ -69,26 +69,61 @@ main {
 .hide{
   display: none;
 }
-//--------------------H1---------------------
-.titleH1 {
+//TITLE--------------------H1---------------------
+.title{
+  background-color: $color-logo-black;
+  width: 100%;
+  padding: 0 2rem;
+  font-family: $font-title;
+h1 {
   display: none;
 }
-//-------------------- USER MENU------------------
+  h2 {
+    font-size: 2rem;
+    text-transform: uppercase;
+    line-height: 1;
+    color: $color-white;
+
+    .underline {
+      position: relative;
+      white-space: nowrap;
+
+      &:after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: calc($deco-height * -0.625);
+        height: $deco-height;
+        background-image: url("data:image/svg+xml,%3Csvg width='100' height='64' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg clip-path='url(%23a)'%3E%3Cpath d='M-17 30.5C-1 22 72-4 54 13 37.9 28.2-2.5 57.5 16 55.5s72-29 104-40' stroke='%2300FDCF' stroke-width='10'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='a'%3E%3Cpath fill='%23fff' d='M0 0h100v64H0z'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E%0A");
+        background-size: auto 100%;
+        background-repeat: round;
+        background-position: 0;
+      }
+    }
+  }
+}
+//MENU-------------------- USER MENU------------------
 .userProfil{
+  padding: .8rem;
+  background-color: $color-background;
+  border-radius: 50%;
   position: fixed;
-  bottom: 111px;
+  bottom: 135px;
   right: 25px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
   &__logo{
     img{
-      width: 8rem;
+      width: 5rem;
     }
   }
   &__userName{
+    font-size: 1rem;
     text-transform:uppercase;
     text-align:center;
   }
   &__list{
-    font-size: 1rem;
+    font-size: .8rem;
     color: $color-white;
     margin:0 1rem;
     text-transform:uppercase;
@@ -101,7 +136,7 @@ main {
     left: -110px;
   }
 }
-//--------------------MENU NAV BAR-------------------
+//MENU--------------------MENU NAV BAR-------------------
 .navbar{
   font-family: $font-face;
   position: sticky;
@@ -124,8 +159,9 @@ main {
     text-transform:uppercase;
     text-align:center;
     line-height:1.2em;
-    a{
+    > a{
       padding: 1rem 0;
+      color: $color-white;
     }
    }
 }
@@ -134,7 +170,7 @@ main {
 .required{
   color: $required;
 }
-//----------LOG IN OR SIGN UP PAGE -------------------
+//LOGIN----------LOG IN OR SIGN UP PAGE -------------------
 .connectForm {
   width: 20rem;
   min-height: 400px;
@@ -143,7 +179,7 @@ main {
   margin: 2rem auto;
   box-shadow: 0 9px 50px hsla(109, 32%, 30%, 0.31);
   padding: 1rem;
-  background-image: linear-gradient(-225deg, $background-header 50%, $color-bg-lighter 50%);
+  background-image: linear-gradient(-225deg, $color-background 50%, $color-bg-lighter 50%);
   font-family: $font-face;
   &__cont, &__btns{
     display: flex;
@@ -199,7 +235,7 @@ main {
     }
   }
 }
-//---------------NEW CONTACT FORM ---------------
+//FORM---------------NEW CONTACT FORM ---------------
 .newcontact__form{
     @extend .connectForm;
   font-family: $font-face;
@@ -217,7 +253,7 @@ main {
     outline: none;
     color: rgba(0,0,0,1);
     &:focus{
-      border-bottom: 2px solid $required;
+      border-bottom: 2px solid $color-turquoise;
     }
   }
   select{
@@ -242,22 +278,52 @@ main {
   text-transform: uppercase;
   color: $color-logo-black;
   cursor: pointer;
-  border: 3px solid;
+  border: 3px solid $color-logo-black;
   padding: 0.25em 0.5em;
   margin: 1.5rem auto;
-  box-shadow: 1px 1px 0px 0px, 2px 2px 0px 0px, 3px 3px 0px 0px, 4px 4px 0px 0px, 5px 5px 0px 0px;
+  box-shadow: 1px 1px 0 0, 2px 2px 0 0, 3px 3px 0 0, 4px 4px 0 0, 5px 5px 0 0;
   position: relative;
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
       &:active{
-        box-shadow: 0px 0px 0px 0px;
+        box-shadow: 0 0 0 0;
         top: 5px;
         left: 5px;
       }
 
 }
-//------------- CHART -----------------------------------
+//HOME-------------CARDS ARTICLE-----------------------------------
+.home{
+  width: 100%;
+  background-image: url("../../medias/womanLiftingBG.jpg");
+  background-size: cover;
+  background-position: center;
+  padding: 2em;
+  &__container{
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  &__cards{
+    flex-wrap: wrap;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .card{
+    width: auto;
+    max-width: $cards-breakpoint;
+    background-color: rgba(255, 255, 255, 0.50);
+    color: $color-logo-black;
+    font-size: 1.2rem;
+    padding: 2rem 1rem;
+    margin: 1em 0;
+    border-radius: 3px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  }
+
+}
+//POIDS------------- CHART -----------------------------------
 .graph_container{
   width: 50%;
 }
@@ -287,81 +353,200 @@ main {
 }
 //Big screen
 @media screen and (min-width: 992px) {
-  .appear{
+  .appear {
     display: none;
   }
-  .display{
+  .display {
     display: block;
   }
-  .navbar{
-    &__list{
+  .navbar {
+    &__list {
       @include displayFlexCenter;
     }
-    &__link{
+
+    &__link {
       font-size: 1.5rem;
-      color: $background-header;
-      display:inline-block;
-      margin:0 1rem;
-      text-transform:uppercase;
-      text-align:center;
-      line-height:1.2em;
+      color: $color-white;
+      display: inline-block;
+      margin: 0 1rem;
+      text-transform: uppercase;
+      text-align: center;
+      line-height: 1.2em;
     }
   }
   .newcontact__form {
     width: 50rem;
-    div{
+
+    div {
       @include displayFlexCenterBetween;
       padding: 1rem;
       margin: 0 auto;
     }
   }
-  .titleH1 {
-    display: grid;
-    place-content: center;
+  .title {
+    @include displayFlexCenterBetween;
     background-color: $color-logo-black;
-    min-height: 9vh;
-    font-family: "Oswald", sans-serif;
-    font-size: clamp(1.5rem, 1rem + 3vw, 3rem);
-    font-weight: 700;
-    text-transform: uppercase;
-    color: $color-grey;
-    > div {
-      grid-area: 1/1/-1/-1;
+    width: 100%;
+    padding: 0 2rem;
+    font-family: $font-title;
+
+    h1 {
+      display: grid;
+      place-content: center;
+      min-height: 9vh;
+      font-size: clamp(1.5rem, 1rem + 3vw, 3rem);
+      font-weight: 700;
+      text-transform: uppercase;
+      color: $color-grey;
+
+      > div {
+        grid-area: 1/1/-1/-1;
+      }
+
+      .top {
+        clip-path: polygon(0% 0%, 100% 0%, 100% 48%, 0% 58%);
+      }
+
+      .bottom {
+        clip-path: polygon(0% 60%, 100% 50%, 100% 100%, 0% 100%);
+        color: transparent;
+        background: -webkit-linear-gradient(177deg, black 53%, $color-grey 65%);
+        background: linear-gradient(177deg, black 53%, $color-grey 65%);
+        background-clip: text;
+        -webkit-background-clip: text;
+        transform: translateX(-0.02em);
+      }
     }
-    .top {
-      clip-path: polygon(0% 0%, 100% 0%, 100% 48%, 0% 58%);
-    }
-    .bottom {
-      clip-path: polygon(0% 60%, 100% 50%, 100% 100%, 0% 100%);
-      color: transparent;
-      background: -webkit-linear-gradient(177deg, black 53%, $color-grey 65%);
-      background: linear-gradient(177deg, black 53%, $color-grey 65%);
-      background-clip: text;
-      -webkit-background-clip: text;
-      transform: translateX(-0.02em);
+
+    h2 {
+      font-size: 2rem;
+      text-transform: uppercase;
+      line-height: 1;
+      color: $color-white;
+
+      .underline {
+        position: relative;
+        white-space: nowrap;
+
+        &:after {
+          content: "";
+          position: absolute;
+          left: 0;
+          right: 0;
+          bottom: calc($deco-height * -0.625);
+          height: $deco-height;
+          background-image: url("data:image/svg+xml,%3Csvg width='100' height='64' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg clip-path='url(%23a)'%3E%3Cpath d='M-17 30.5C-1 22 72-4 54 13 37.9 28.2-2.5 57.5 16 55.5s72-29 104-40' stroke='%2300FDCF' stroke-width='10'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='a'%3E%3Cpath fill='%23fff' d='M0 0h100v64H0z'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E%0A");
+          background-size: auto 100%;
+          background-repeat: round;
+          background-position: 0;
+        }
+      }
     }
   }
-.userProfil{
-  position: fixed;
-  bottom: 111px;
-  right: 25px;
-  &__logo{
-    img{
-      width: 8rem;
+
+  .userProfil {
+    position: fixed;
+    bottom: 111px;
+    right: 25px;
+    font-family: $font-title;
+
+    &__logo {
+      img {
+        width: 8rem;
+      }
+    }
+
+    &__list {
+      font-size: 1.5rem;
+      color: $color-white;
+      margin: 0 1rem;
+      text-transform: uppercase;
+      text-align: center;
+    }
+
+    &__menu {
+      width: 40rem;
+      position: absolute;
+      bottom: 128px;
+      left: -320px;
     }
   }
-  &__list{
-    font-size: 1.5rem;
-    color: $color-white;
-    margin:0 1rem;
-    text-transform:uppercase;
-    text-align:center;
+  .home {
+    font-family: $font-title;
+    @include displayFlexCenterEvenly;
+    width: 100%;
+    background-image: url("../../medias/gymLIGHT.jpg");
+    background-size: cover;
+    background-position: center;
+
+    .card {
+      @include displayFlexColumn;
+      @include displayFlexCenter;
+      width: 100%;
+      max-width: 600px;
+      min-width: 300px;
+      height: auto;
+      background-color: rgba(41, 41, 41, 0.65);
+      margin: 1rem;
+      border-radius: 10px;
+      box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.24);
+      border: 2px solid rgba(7, 7, 7, 0.12);
+      font-size: 1.5rem;
+      position: relative;
+      opacity: .7;
+      &:hover {
+        transition: all 0.3s ease;
+        opacity: 1;
+      }
+
+      .subTitle {
+        width: 100%;
+        text-align: center;
+        margin-top: 30px;
+        color: white;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 4px;
+      }
+      .text {
+        color: $color-bg-light;
+        width: 80%;
+        text-align: center;
+        font-size: 1.1rem;
+        margin-top: 20px;
+        font-weight: 200;
+        letter-spacing: 3px;
+      }
+      .icon {
+        margin: 0 auto;
+        padding: 1rem;
+        background-color: $color-turquoise;
+        border-radius: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: $color-logo-black;
+        transition: all 0.8s ease;
+        background-size: 200px;
+      &:hover {
+        background-position: -120px;
+        transition: all 0.3s ease;
+        i{
+          background: $color-white;
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          opacity: 1;
+          transition: all 0.3s ease;
+          }
+        }
+      }
+      .btn{
+        border: 3px solid $color-white;
+        box-shadow: 1px 1px 0 0, 2px 2px 0 0, 3px 3px 0 0, 4px 4px 0 0, 5px 5px 0 0 $color-white;
+        a{
+          color: $color-white;
+        }
+      }
+    }
   }
-  &__menu{
-    width: 40rem;
-    position: absolute;
-    bottom: 128px;
-    left: -320px;
-  }
-}
 }

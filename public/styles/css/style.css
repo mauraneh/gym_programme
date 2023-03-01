@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css?family=Fjalla+One&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Oswald|Nunito:400,700");
 *, *:before, *:after {
   box-sizing: border-box;
 }
@@ -68,7 +69,7 @@ main {
   justify-content: center;
   width: 100%;
   padding: 2rem;
-  background-color: #eeeeee;
+  background-color: rgba(249, 249, 249, 0.39);
 }
 .headPage .iconLogHead {
   display: flex;
@@ -92,24 +93,57 @@ main {
   display: none;
 }
 
-.titleH1 {
+.title {
+  background-color: #000;
+  width: 100%;
+  padding: 0 2rem;
+  font-family: "Oswald", sans-serif;
+}
+.title h1 {
   display: none;
+}
+.title h2 {
+  font-size: 2rem;
+  text-transform: uppercase;
+  line-height: 1;
+  color: #fff;
+}
+.title h2 .underline {
+  position: relative;
+  white-space: nowrap;
+}
+.title h2 .underline:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -0.1953125em;
+  height: 0.3125em;
+  background-image: url("data:image/svg+xml,%3Csvg width='100' height='64' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg clip-path='url(%23a)'%3E%3Cpath d='M-17 30.5C-1 22 72-4 54 13 37.9 28.2-2.5 57.5 16 55.5s72-29 104-40' stroke='%2300FDCF' stroke-width='10'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='a'%3E%3Cpath fill='%23fff' d='M0 0h100v64H0z'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E%0A");
+  background-size: auto 100%;
+  background-repeat: round;
+  background-position: 0;
 }
 
 .userProfil {
+  padding: 0.8rem;
+  background-color: rgba(249, 249, 249, 0.39);
+  border-radius: 50%;
   position: fixed;
-  bottom: 111px;
+  bottom: 135px;
   right: 25px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
 .userProfil__logo img {
-  width: 8rem;
+  width: 5rem;
 }
 .userProfil__userName {
+  font-size: 1rem;
   text-transform: uppercase;
   text-align: center;
 }
 .userProfil__list {
-  font-size: 1rem;
+  font-size: 0.8rem;
   color: #fff;
   margin: 0 1rem;
   text-transform: uppercase;
@@ -146,8 +180,9 @@ main {
   text-align: center;
   line-height: 1.2em;
 }
-.navbar__link a {
+.navbar__link > a {
   padding: 1rem 0;
+  color: #fff;
 }
 
 .required {
@@ -162,7 +197,7 @@ main {
   margin: 2rem auto;
   box-shadow: 0 9px 50px hsla(109deg, 32%, 30%, 0.31);
   padding: 1rem;
-  background-image: linear-gradient(-225deg, #eeeeee 50%, #dcdada 50%);
+  background-image: linear-gradient(-225deg, rgba(249, 249, 249, 0.39) 50%, #dcdada 50%);
   font-family: "Fjalla One";
   /* Show/hide password Font Icon */
 }
@@ -232,7 +267,7 @@ main {
   color: rgb(0, 0, 0);
 }
 .newcontact__form input:focus, .newcontact__form select:focus {
-  border-bottom: 2px solid #ff0000;
+  border-bottom: 2px solid rgba(0, 253, 207, 0.4);
 }
 .newcontact__form label {
   color: #6e7781;
@@ -257,19 +292,48 @@ main {
   text-transform: uppercase;
   color: #000;
   cursor: pointer;
-  border: 3px solid;
+  border: 3px solid #000;
   padding: 0.25em 0.5em;
   margin: 1.5rem auto;
-  box-shadow: 1px 1px 0px 0px, 2px 2px 0px 0px, 3px 3px 0px 0px, 4px 4px 0px 0px, 5px 5px 0px 0px;
+  box-shadow: 1px 1px 0 0, 2px 2px 0 0, 3px 3px 0 0, 4px 4px 0 0, 5px 5px 0 0;
   position: relative;
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
 }
 .btn:active {
-  box-shadow: 0px 0px 0px 0px;
+  box-shadow: 0 0 0 0;
   top: 5px;
   left: 5px;
+}
+
+.home {
+  width: 100%;
+  background-image: url("../../medias/womanLiftingBG.jpg");
+  background-size: cover;
+  background-position: center;
+  padding: 2em;
+}
+.home__container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+.home__cards {
+  flex-wrap: wrap;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.home .card {
+  width: auto;
+  max-width: 900px;
+  background-color: rgba(255, 255, 255, 0.5);
+  color: #000;
+  font-size: 1.2rem;
+  padding: 2rem 1rem;
+  margin: 1em 0;
+  border-radius: 3px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 .graph_container {
@@ -314,7 +378,7 @@ main {
   }
   .navbar__link {
     font-size: 1.5rem;
-    color: #eeeeee;
+    color: #fff;
     display: inline-block;
     margin: 0 1rem;
     text-transform: uppercase;
@@ -331,24 +395,31 @@ main {
     padding: 1rem;
     margin: 0 auto;
   }
-  .titleH1 {
+  .title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #000;
+    width: 100%;
+    padding: 0 2rem;
+    font-family: "Oswald", sans-serif;
+  }
+  .title h1 {
     display: grid;
     place-content: center;
-    background-color: #000;
     min-height: 9vh;
-    font-family: "Oswald", sans-serif;
     font-size: clamp(1.5rem, 1rem + 3vw, 3rem);
     font-weight: 700;
     text-transform: uppercase;
     color: hsl(0deg, 0%, 100%);
   }
-  .titleH1 > div {
+  .title h1 > div {
     grid-area: 1/1/-1/-1;
   }
-  .titleH1 .top {
+  .title h1 .top {
     clip-path: polygon(0% 0%, 100% 0%, 100% 48%, 0% 58%);
   }
-  .titleH1 .bottom {
+  .title h1 .bottom {
     clip-path: polygon(0% 60%, 100% 50%, 100% 100%, 0% 100%);
     color: transparent;
     background: -webkit-linear-gradient(177deg, black 53%, hsl(0deg, 0%, 100%) 65%);
@@ -357,10 +428,33 @@ main {
     -webkit-background-clip: text;
     transform: translateX(-0.02em);
   }
+  .title h2 {
+    font-size: 2rem;
+    text-transform: uppercase;
+    line-height: 1;
+    color: #fff;
+  }
+  .title h2 .underline {
+    position: relative;
+    white-space: nowrap;
+  }
+  .title h2 .underline:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -0.1953125em;
+    height: 0.3125em;
+    background-image: url("data:image/svg+xml,%3Csvg width='100' height='64' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg clip-path='url(%23a)'%3E%3Cpath d='M-17 30.5C-1 22 72-4 54 13 37.9 28.2-2.5 57.5 16 55.5s72-29 104-40' stroke='%2300FDCF' stroke-width='10'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='a'%3E%3Cpath fill='%23fff' d='M0 0h100v64H0z'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E%0A");
+    background-size: auto 100%;
+    background-repeat: round;
+    background-position: 0;
+  }
   .userProfil {
     position: fixed;
     bottom: 111px;
     right: 25px;
+    font-family: "Oswald", sans-serif;
   }
   .userProfil__logo img {
     width: 8rem;
@@ -377,6 +471,87 @@ main {
     position: absolute;
     bottom: 128px;
     left: -320px;
+  }
+  .home {
+    font-family: "Oswald", sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+    background-image: url("../../medias/gymLIGHT.jpg");
+    background-size: cover;
+    background-position: center;
+  }
+  .home .card {
+    display: flex;
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 600px;
+    min-width: 300px;
+    height: auto;
+    background-color: rgba(41, 41, 41, 0.65);
+    margin: 1rem;
+    border-radius: 10px;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.24);
+    border: 2px solid rgba(7, 7, 7, 0.12);
+    font-size: 1.5rem;
+    position: relative;
+    opacity: 0.7;
+  }
+  .home .card:hover {
+    transition: all 0.3s ease;
+    opacity: 1;
+  }
+  .home .card .subTitle {
+    width: 100%;
+    text-align: center;
+    margin-top: 30px;
+    color: white;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+  }
+  .home .card .text {
+    color: #dcdada;
+    width: 80%;
+    text-align: center;
+    font-size: 1.1rem;
+    margin-top: 20px;
+    font-weight: 200;
+    letter-spacing: 3px;
+  }
+  .home .card .icon {
+    margin: 0 auto;
+    padding: 1rem;
+    background-color: rgba(0, 253, 207, 0.4);
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #000;
+    transition: all 0.8s ease;
+    background-size: 200px;
+  }
+  .home .card .icon:hover {
+    background-position: -120px;
+    transition: all 0.3s ease;
+  }
+  .home .card .icon:hover i {
+    background: #fff;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    opacity: 1;
+    transition: all 0.3s ease;
+  }
+  .home .card .btn {
+    border: 3px solid #fff;
+    box-shadow: 1px 1px 0 0, 2px 2px 0 0, 3px 3px 0 0, 4px 4px 0 0, 5px 5px 0 0 #fff;
+  }
+  .home .card .btn a {
+    color: #fff;
   }
 }
 

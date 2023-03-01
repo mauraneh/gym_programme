@@ -44,3 +44,25 @@
                 return true;
             }
     }
+
+    function getLastPoids(int $idClient): Releve_poids{
+        $conn = getConnexion();
+
+        $SQLQuery= "
+        SELECT id, dateAjout, valeur
+        FROM Releve_poids
+        WHERE id_client = :idClient
+        ORDER BY dateAjout
+        DESC limit 1";
+
+        $SQLStmt = $conn->prepare($SQLQuery);
+        $SQLStmt->bindValue(':idClient', $idClient, PDO::PARAM_INT);
+        $SQLStmt->execute();
+
+        $SQLRow = $SQLStmt->fetch(PDO::FETCH_ASSOC);
+        $lastPoids = new Releve_poids(date_create($SQLRow['dateAjout']), floatval($SQLRow['valeur']));
+
+        $lastPoids->setId($SQLRow['id']);
+
+        return $lastPoids;
+    }
