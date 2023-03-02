@@ -61,3 +61,36 @@
 
         return ($newUser);
     }
+
+    function updateUser(User $unUser): bool {
+        $conn = getConnexion();
+
+        $SQLQuery = "UPDATE userauth
+                    SET id=:id, login= :login, mdp= :mdp
+                    WHERE id= :id;";
+
+        $SQLStmt = $conn->prepare($SQLQuery);
+        $SQLStmt->bindValue(':login', $unUser->getLogin(), PDO::PARAM_STR);
+        $SQLStmt->bindValue(':mdp', $unUser->getMdp(), PDO::PARAM_STR);
+        $SQLStmt->bindValue(':id', $unUser->getId(), PDO::PARAM_STR);
+
+        if (!$SQLStmt->execute()){
+            return false;
+        }else{
+            return true;
+        }
+    }
+    function deleteUser(User $userToDelete): bool{
+        $conn = getConnexion();
+
+        $SQLQuery = "DELETE FROM userauth WHERE id = :id";
+
+        $SQLStmt = $conn->prepare($SQLQuery);
+        $SQLStmt->bindValue(':id', $userToDelete->getId(), PDO::PARAM_INT);
+
+        if (!$SQLStmt->execute()){
+            return false;
+        }else{
+            return true;
+        }
+    }

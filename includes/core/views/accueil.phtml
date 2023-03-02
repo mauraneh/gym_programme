@@ -32,13 +32,8 @@
         <h3 class="subTitle">Le programme de gymrat que t'as choisi: </h3>
         <div class="text">
             <?php
-                if($unClient->getProgramme()!= null){
                     print('<p>'.$unClient->getProgramme()->getLibelle().'</p>');
                     print('<p>'.$unClient->getProgramme()->getDescription().'</p>');
-                }else{
-                    print('<p class="text">Trouver un programme</p>');
-                    print('<a class="buttonAdd" href="index.php?page=programme"><i class="fa-solid fa-dumbbell"></i></a>');
-                }
             ?>
         </div>
         <div class="btn">
@@ -51,7 +46,7 @@
             <h3 class="subTitle">Prêt pour s'entrainer</h3>
             <div class="text">
             <?php
-                    print('<p>'.$unClient->getProgramme()->getFrequence().' <span>jours</span></p>');
+                    print('<p><span>'.$unClient->getProgramme()->getFrequence().' jours</span></p>');
             ?>
             </div>
         </section>
@@ -61,10 +56,12 @@
         <h3 class="subTitle">Ton poids ça donne ça: </h3>
         <div class="text">
         <?php
-        print('<p id="home__weightStart">Ton poids de référence: '.$unClient->getPoidsRef().' kg</p>');
-        print('<p id="home__weightNow">Ton poids actuel: '.$unPoids->getValeur().' kg</p>');
-        print('<p id="home__weightGoal">Ton objectif de poids: '.$unClient->getPoidsVise().' kg</p>');
-        print('<p id="home__weightLeft">Il te reste '.($unPoids->getValeur()) - ($unClient->getPoidsVise()).'kg avant ton objectif</p>');
+
+        print('<p id="home__weightStart">Ton poids de référence:<span> '.$unClient->getPoidsRef().' kg</span></p>');
+        print('<p id="home__weightNow">Ton poids actuel:<span>  '.$unPoids->getValeur().' kg</span></p>');
+        print('<p id="home__weightGoal">Ton objectif de poids:<span>  '.$unClient->getPoidsVise().' kg</span></p>');
+        print('<p id="home__weightLeft">Il te reste <span> '.($unPoids->getValeur()) - ($unClient->getPoidsVise()).'kg</span> avant ton objectif</p>');
+
         ?>
         </div>
         <div class="btn">

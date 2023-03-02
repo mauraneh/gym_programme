@@ -60,9 +60,26 @@
         $SQLStmt->execute();
 
         $SQLRow = $SQLStmt->fetch(PDO::FETCH_ASSOC);
-        $lastPoids = new Releve_poids(date_create($SQLRow['dateAjout']), floatval($SQLRow['valeur']));
-
-        $lastPoids->setId($SQLRow['id']);
+        if($SQLStmt->rowCount() == 0){
+            $lastPoids = new Releve_poids();
+        }else{
+            $lastPoids = new Releve_poids(date_create($SQLRow['dateAjout']), floatval($SQLRow['valeur']));
+            $lastPoids->setId($SQLRow['id']);
+        }
 
         return $lastPoids;
+    }
+    function deletePoids(int $clientPoids): bool{
+        $conn = getConnexion();
+
+        $SQLQuery = "DELETE FROM Releve_poids WHERE id_client = :id";
+
+        $SQLStmt = $conn->prepare($SQLQuery);
+        $SQLStmt->bindValue(':id', $clientPoids, PDO::PARAM_INT);
+
+        if (!$SQLStmt->execute()){
+            return false;
+        }else{
+            return true;
+        }
     }

@@ -12,9 +12,12 @@
     <?php require "includes/partials/page_header.phtml"; ?>
 </header>
 <main>
-    <section class="titleH1">
-        <div class="top">Bienvenue</div>
-        <div class="bottom" aria-hidden="true">Bienvenue</div>
+    <section class="title">
+        <h1>
+            <div class="top">Bienvenue Gymrat</div>
+            <div class="bottom" aria-hidden="true">Bienvenue Gymrat</div>
+        </h1>
+        <h2 class="required"> <?= $message ?? '' ?> </h2>
     </section>
 
     <!--------------- CONNECTION ---------------------------->

@@ -14,5 +14,9 @@
 
     $unPoids = getLastPoids($unClient->getId());
 
+    if($unPoids->getValeur() == 0){
+        $unPoids = new Releve_poids(new DateTime('now'), $unClient->getPoidsRef(), $unClient);
+    }
+
     require_once("includes/core/views/accueil.phtml");
 

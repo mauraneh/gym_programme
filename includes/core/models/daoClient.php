@@ -156,3 +156,19 @@ function getClientByLogin( string $login): Client
 
         return $unClient;
     }
+
+    function deleteClient(Client $clientToDelete): bool{
+        $conn = getConnexion();
+
+        $SQLQuery = "DELETE FROM client WHERE id = :idClient";
+
+        $SQLStmt = $conn->prepare($SQLQuery);
+        $SQLStmt->bindValue(':idClient', $clientToDelete->getId(), PDO::PARAM_INT);
+
+        if (!$SQLStmt->execute()){
+            return false;
+        }else{
+            return true;
+        }
+    }
+

@@ -179,7 +179,7 @@ h1 {
   margin: 2rem auto;
   box-shadow: 0 9px 50px hsla(109, 32%, 30%, 0.31);
   padding: 1rem;
-  background-image: linear-gradient(-225deg, $color-background 50%, $color-bg-lighter 50%);
+  background-image: linear-gradient(-225deg, $color-bg-grey 50%, $color-bg-lighter 50%);
   font-family: $font-face;
   &__cont, &__btns{
     display: flex;
@@ -294,34 +294,74 @@ h1 {
 
 }
 //HOME-------------CARDS ARTICLE-----------------------------------
-.home{
+.home {
+  font-family: $font-face;
+  @include displayFlexCenterEvenly;
   width: 100%;
   background-image: url("../../medias/womanLiftingBG.jpg");
   background-size: cover;
   background-position: center;
-  padding: 2em;
-  &__container{
-    max-width: 1000px;
-    margin: 0 auto;
-  }
-  &__cards{
-    flex-wrap: wrap;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
-  .card{
-    width: auto;
-    max-width: $cards-breakpoint;
-    background-color: rgba(255, 255, 255, 0.50);
-    color: $color-logo-black;
-    font-size: 1.2rem;
-    padding: 2rem 1rem;
-    margin: 1em 0;
-    border-radius: 3px;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-  }
 
+  .card {
+    @include displayFlexColumn;
+    @include displayFlexCenter;
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    background-color: rgba(41, 41, 41, 0.65);
+    margin: 3rem;
+    border-radius: 10px;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.24);
+    border: 2px solid rgba(7, 7, 7, 0.12);
+    font-size: 1.1rem;
+    position: relative;
+    padding: 1rem 0;
+
+    .subTitle {
+      width: 100%;
+      text-align: center;
+      margin-top: 30px;
+      color: white;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+    }
+    .text {
+      font-family: $font-face;
+      color: $color-bg-light;
+      width: 80%;
+      text-align: center;
+      font-size: 1rem;
+      margin-top: 2rem;
+      font-weight: 200;
+      letter-spacing: 2px;
+      p{
+        margin: .8rem 0;
+      }
+      span{
+        color: $color-turquoise;
+      }
+    }
+    .icon {
+      margin: 0 auto;
+      padding: 1rem;
+      background-color: $color-turquoise;
+      border-radius: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: $color-logo-black;
+      transition: all 0.8s ease;
+      background-size: 200px;
+      }
+    .btn{
+      border: 3px solid $color-white;
+      box-shadow: 1px 1px 0 0, 2px 2px 0 0, 3px 3px 0 0, 4px 4px 0 0, 5px 5px 0 0 $color-white;
+      a{
+        color: $color-white;
+      }
+    }
+  }
 }
 //POIDS------------- CHART -----------------------------------
 .graph_container{
@@ -487,7 +527,7 @@ h1 {
       min-width: 300px;
       height: auto;
       background-color: rgba(41, 41, 41, 0.65);
-      margin: 1rem;
+      margin: 5rem;
       border-radius: 10px;
       box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.24);
       border: 2px solid rgba(7, 7, 7, 0.12);
@@ -502,7 +542,7 @@ h1 {
       .subTitle {
         width: 100%;
         text-align: center;
-        margin-top: 30px;
+        margin-top: 2.5rem;
         color: white;
         font-weight: 600;
         text-transform: uppercase;
@@ -513,8 +553,6 @@ h1 {
         width: 80%;
         text-align: center;
         font-size: 1.1rem;
-        margin-top: 20px;
-        font-weight: 200;
         letter-spacing: 3px;
       }
       .icon {

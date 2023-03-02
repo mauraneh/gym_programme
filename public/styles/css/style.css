@@ -197,7 +197,7 @@ main {
   margin: 2rem auto;
   box-shadow: 0 9px 50px hsla(109deg, 32%, 30%, 0.31);
   padding: 1rem;
-  background-image: linear-gradient(-225deg, rgba(249, 249, 249, 0.39) 50%, #dcdada 50%);
+  background-image: linear-gradient(-225deg, #eee 50%, #dcdada 50%);
   font-family: "Fjalla One";
   /* Show/hide password Font Icon */
 }
@@ -308,32 +308,76 @@ main {
 }
 
 .home {
+  font-family: "Fjalla One";
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
   width: 100%;
   background-image: url("../../medias/womanLiftingBG.jpg");
   background-size: cover;
   background-position: center;
-  padding: 2em;
-}
-.home__container {
-  max-width: 1000px;
-  margin: 0 auto;
-}
-.home__cards {
-  flex-wrap: wrap;
-  list-style: none;
-  margin: 0;
-  padding: 0;
 }
 .home .card {
-  width: auto;
-  max-width: 900px;
-  background-color: rgba(255, 255, 255, 0.5);
+  display: flex;
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  background-color: rgba(41, 41, 41, 0.65);
+  margin: 3rem;
+  border-radius: 10px;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.24);
+  border: 2px solid rgba(7, 7, 7, 0.12);
+  font-size: 1.1rem;
+  position: relative;
+  padding: 1rem 0;
+}
+.home .card .subTitle {
+  width: 100%;
+  text-align: center;
+  margin-top: 30px;
+  color: white;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+}
+.home .card .text {
+  font-family: "Fjalla One";
+  color: #dcdada;
+  width: 80%;
+  text-align: center;
+  font-size: 1rem;
+  margin-top: 2rem;
+  font-weight: 200;
+  letter-spacing: 2px;
+}
+.home .card .text p {
+  margin: 0.8rem 0;
+}
+.home .card .text span {
+  color: rgba(0, 253, 207, 0.4);
+}
+.home .card .icon {
+  margin: 0 auto;
+  padding: 1rem;
+  background-color: rgba(0, 253, 207, 0.4);
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   color: #000;
-  font-size: 1.2rem;
-  padding: 2rem 1rem;
-  margin: 1em 0;
-  border-radius: 3px;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  transition: all 0.8s ease;
+  background-size: 200px;
+}
+.home .card .btn {
+  border: 3px solid #fff;
+  box-shadow: 1px 1px 0 0, 2px 2px 0 0, 3px 3px 0 0, 4px 4px 0 0, 5px 5px 0 0 #fff;
+}
+.home .card .btn a {
+  color: #fff;
 }
 
 .graph_container {
@@ -493,7 +537,7 @@ main {
     min-width: 300px;
     height: auto;
     background-color: rgba(41, 41, 41, 0.65);
-    margin: 1rem;
+    margin: 5rem;
     border-radius: 10px;
     box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.24);
     border: 2px solid rgba(7, 7, 7, 0.12);
@@ -508,7 +552,7 @@ main {
   .home .card .subTitle {
     width: 100%;
     text-align: center;
-    margin-top: 30px;
+    margin-top: 2.5rem;
     color: white;
     font-weight: 600;
     text-transform: uppercase;
@@ -519,8 +563,6 @@ main {
     width: 80%;
     text-align: center;
     font-size: 1.1rem;
-    margin-top: 20px;
-    font-weight: 200;
     letter-spacing: 3px;
   }
   .home .card .icon {
