@@ -107,6 +107,7 @@ main {
   text-transform: uppercase;
   line-height: 1;
   color: #fff;
+  padding-bottom: 1rem;
 }
 .title h2 .underline {
   position: relative;
@@ -380,6 +381,184 @@ main {
   color: #fff;
 }
 
+.separator {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  color: rgba(0, 253, 207, 0.4);
+  font-size: 2.5rem;
+  padding: 2rem 0;
+  background-color: #eee;
+}
+
+.btns-prog {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.btn-rnd {
+  font-family: "Open Sans", sans-serif;
+  font-size: 1rem;
+  letter-spacing: 2px;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #fff;
+  cursor: pointer;
+  border: 3px solid #fff;
+  border-radius: 50%;
+  padding: 1.5rem 0.5rem;
+  margin: 1.5rem;
+  box-shadow: 1px 1px 0 0, 2px 2px 0 0, 3px 3px 0 0, 4px 4px 0 0, 5px 5px 0 0;
+  position: relative;
+  user-select: none;
+  -webkit-user-select: none;
+}
+.btn-rnd:active {
+  box-shadow: 0 0 0 0;
+  top: 5px;
+  left: 5px;
+}
+
+.nav_programmes {
+  background-image: url("../../medias/bg-DB.jpeg");
+  display: flex;
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.nav_programmes > ul {
+  padding: 3rem 0;
+}
+.nav_programmes > ul > li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  font-family: "Fjalla One";
+  width: 360px;
+  justify-content: space-between;
+  padding: 0.75rem;
+  margin: 1rem 0;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+  border: 2px solid rgba(7, 7, 7, 0.12);
+  background-color: rgba(60, 60, 60, 0.8);
+}
+.nav_programmes > ul > li .dumbell {
+  background-color: rgba(0, 253, 207, 0.4);
+  border-radius: 50%;
+  font-size: 2rem;
+  padding: 1rem;
+}
+.nav_programmes > ul > li > a {
+  margin: 0.6rem;
+  color: #fff;
+  font-size: 1.3rem;
+  text-align: center;
+}
+.nav_programmes > ul > li > p {
+  font-size: 1.3rem;
+  color: rgba(0, 253, 207, 0.4);
+  font-weight: lighter;
+}
+
+.fiche {
+  background-image: url("../../medias/dumbbell-background.jpeg");
+  display: flex;
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.fiche .prog {
+  width: 320px;
+  height: 100%;
+  padding: 5rem 0;
+  display: flex;
+  display: flex;
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.fiche .prog__img {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 280px;
+  height: 200px;
+  padding: 8px 8px 48px;
+  background: white;
+  border-radius: 4px;
+  box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.15);
+  transform: rotate(5deg) translate(20px, 45px);
+}
+.fiche .prog__img > img {
+  width: 16rem;
+}
+.fiche .prog__frequence, .fiche .prog__title {
+  background: rgba(0, 253, 207, 0.4);
+  padding: 0.5rem 1.6rem;
+  margin: 0.3rem;
+  flex-grow: 0;
+  align-items: baseline;
+  text-align: center;
+  font-size: 2.5rem;
+  z-index: 1;
+  color: #000;
+  font-family: "Oswald", sans-serif;
+  text-transform: uppercase;
+  transform: rotate(-5deg);
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+}
+.fiche .prog__frequence {
+  margin-left: 2rem;
+}
+.fiche .prog__title {
+  display: flex;
+  flex-direction: column;
+}
+.fiche .prog__description {
+  padding: 1rem;
+  font-size: 1.5rem;
+  letter-spacing: 2px;
+  font-weight: 600;
+  font-family: "Oswald", sans-serif;
+  text-transform: uppercase;
+}
+.fiche .prog__session {
+  color: rgba(0, 253, 207, 0.4);
+  font-size: 2rem;
+  font-family: "Fjalla One";
+  letter-spacing: 3px;
+}
+.fiche .exo {
+  display: flex;
+  flex-direction: column;
+  margin: 0.8rem 0;
+  color: #fff;
+  background-color: rgba(60, 60, 60, 0.8);
+  padding: 2rem;
+}
+.fiche .exo__nom {
+  font-size: 1.7rem;
+}
+.fiche .exo__content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 0;
+  font-size: 1.4rem;
+  border-left: 2px solid rgba(0, 253, 207, 0.4);
+  text-align: center;
+}
+.fiche .exo__serie, .fiche .exo__rep, .fiche .exo__pause {
+  padding: 0 1rem;
+}
+
 .graph_container {
   width: 50%;
 }
@@ -477,22 +656,6 @@ main {
     text-transform: uppercase;
     line-height: 1;
     color: #fff;
-  }
-  .title h2 .underline {
-    position: relative;
-    white-space: nowrap;
-  }
-  .title h2 .underline:after {
-    content: "";
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: -0.1953125em;
-    height: 0.3125em;
-    background-image: url("data:image/svg+xml,%3Csvg width='100' height='64' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg clip-path='url(%23a)'%3E%3Cpath d='M-17 30.5C-1 22 72-4 54 13 37.9 28.2-2.5 57.5 16 55.5s72-29 104-40' stroke='%2300FDCF' stroke-width='10'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='a'%3E%3Cpath fill='%23fff' d='M0 0h100v64H0z'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E%0A");
-    background-size: auto 100%;
-    background-repeat: round;
-    background-position: 0;
   }
   .userProfil {
     position: fixed;

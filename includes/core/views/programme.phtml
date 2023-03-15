@@ -19,52 +19,65 @@
         <h1>
             <div class="top">Les programmes</div>
             <div class="bottom" aria-hidden="true">Les programmes</div>
+            <h2>Choisir un <span class="underline">programme</span></h2>
         </h1>
     </section>
-    <h2>Choisir un programme</h2>
-    <table>
-        <thead>
-        <th>Programme: </th>
-        </thead>
-        <tbody>
-        <?php
+    <div class="prog_content">
+        <nav class="nav_programmes">
+            <?php
 
-            foreach ($lesProgrammes as $unProgramme){
-                print('<tr>');
-                print('<td>'.$unProgramme->getLibelle().'</td>');
-                print('<td>'.$unProgramme->getFrequence().' <span>jours</span></td>');
-                print("<td><a href=\"#{$unProgramme->getId()}\">Afficher</a></td>");
-                print("<td><a href=\"index.php?page=client&action=setProg&id={$unProgramme->getId()}\">Choisir</a></td>");
-                print('</tr>');
-            }
-        ?>
-        </tbody>
-    </table>
+                foreach ($lesProgrammes as $unProgramme){
+                    print('<ul>');
+                    print('<li>');
+                    print('<i class="fa-solid fa-dumbbell dumbell"></i>');
+                    print('<a href="#'.$unProgramme->getId().'">'.$unProgramme->getLibelle().'</a>');
+                    print('<p>'.$unProgramme->getFrequence().' <span>jours</span></p>');
+                    print('<div class="btns-prog">');
+                    print("<a class='btn-rnd' href=\"#{$unProgramme->getId()}\">Afficher</a>");
+                    print("<a class='btn-rnd' href=\"index.php?page=client&action=setProg&id={$unProgramme->getId()}\"> Choisir </a>");
+                    print('</div>');
+                    print('</li>');
+                    print('</ul>');
+                }
+            ?>
+        </nav>
+    </div>
+
+    <!-- begin Separator -->
+    <div class="separator"> - - - - - <i class="fa-solid fa-dumbbell dumbell"></i> - - - - - </div>
+    <!-- end Separator -->
+
+
 <article class="fiche">
     <?php
+        print('<div class="fiche__content">');
+
         foreach ($lesProgrammes as $unProgramme){
-            print('<div class="ficheProg">');
-            print('<h2 class="__title" id='.$unProgramme->getId().'>'.$unProgramme->getLibelle().'</h2>');
-            print('<p class="__frequence">'.$unProgramme->getFrequence().' <span>jours</span></p>');
-            print('<p class="__description">'.$unProgramme->getDescription().'</p>');
-            print('</div>');
+            print('<div class="prog">');
+            print('<div class="prog__img"> <img src="public/medias/gymLIGHT.jpg" alt="image homme gym"> </div>');
+            print('<p class="prog__title" id='.$unProgramme->getId().'>'.$unProgramme->getLibelle().'</p>');
+            print('<p class="prog__frequence">'.$unProgramme->getFrequence().' <span>jours</span></p>');
+            print('<p class="prog__description ">'.$unProgramme->getDescription().'</p>');
+
+
             foreach ($unProgramme->getSessions() as $uneSession){
-                print('<div class="ficheSessions">');
-                print('<p class="__libelle">'.$uneSession->getLibelle().'</p>');
-                print('</div>');
+                print('<p class="prog__session">'.$uneSession->getLibelle().'</p>');
+
                 foreach ($uneSession->getExercices() as $unExercice){
-                    print('<div class="ficheExo">');
-                    print('<p class="__nom">'.$unExercice.'</p>');
-                    print('<p class="__serie">Nombre de série: '.$unExercice->getNbreSerie().'</p>');
-                    print('<p class="__rep">Nombre de répétitions: '.$unExercice->getNbreRep().'</p>');
-                    print('<p class="__pause">Temps de pause entre chaque série: '.$unExercice->getPAuse().'</p>');
+                    print('<div class="exo">');
+                        print('<p class="exo__nom">'.$unExercice.'</p>');
+                            print('<div class="exo__content">');
+                            print('<p class="exo__serie">série: '.$unExercice->getNbreSerie().' </p>');
+                            print('<p class="exo__rep">répétition: '.$unExercice->getNbreRep().' </p>');
+                            print('<p class="exo__pause">pause: '.$unExercice->getPAuse().' min </p>');
+                        print('</div>');
                     print('</div>');
                 }
             }
-            print("<a href=\"index.php?page=client&action=setProg&id={$unProgramme->getId()}\">Choisir</a>");
-            print('<br>');
-
+            print("<a class='btn-rnd' href=\"index.php?page=client&action=setProg&id={$unProgramme->getId()}\">Choisir</a>");
+            print('</div>');
         }
+        print('</div>');
     ?>
 </article>
     <footer>

@@ -12,8 +12,9 @@ $color-bg-grey: #eee;
 $required: #ff0000;
 $color-turquoise: rgba(0, 253, 207, 0.4);
 $color-white: #fff;
-$color-grey: hsl(0, 0%, 100%);
+$color-opacity-light: hsl(0, 0%, 100%);
 $accent-color: #FBD5B0;
+$bg-opacity-grey: rgba(60, 60, 60, 0.80);
 //--------------- FONT --------------
 $font-face: 'Fjalla One';
 $font-title: "Oswald", sans-serif;
@@ -23,4 +24,4 @@ $deco-height: 0.3125em;
 $grid-breakpoint: 700px;
 $smallest-breakpoint: 520px;
 
-$cards-breakpoint: 900px
+$cards-breakpoint: 900px;
