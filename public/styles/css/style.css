@@ -133,7 +133,7 @@ main {
   position: fixed;
   bottom: 135px;
   right: 25px;
-  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
 .userProfil__logo img {
   width: 5rem;
@@ -225,8 +225,8 @@ main {
 .connectForm__inputItem {
   background: #fff;
   color: #000;
-  padding: 14px 0px 15px 9px;
-  border-radius: 5px 0px 0px 5px;
+  padding: 14px 0 15px 9px;
+  border-radius: 5px 0 0 5px;
 }
 .connectForm #eye, .newcontact__form #eye {
   background: none;
@@ -243,7 +243,7 @@ main {
   color: #6e7781;
   outline: none;
   border: none;
-  border-radius: 0px 5px 5px 0px;
+  border-radius: 0 5px 5px 0;
   transition: 0.2s linear;
 }
 .connectForm__user > input:focus, .newcontact__form .connectForm__user > select:focus, .connectForm__mdp > input:focus, .newcontact__form .connectForm__mdp > select:focus {
@@ -330,7 +330,7 @@ main {
   background-color: rgba(41, 41, 41, 0.65);
   margin: 3rem;
   border-radius: 10px;
-  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.24);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.24);
   border: 2px solid rgba(7, 7, 7, 0.12);
   font-size: 1.1rem;
   position: relative;
@@ -443,7 +443,7 @@ main {
   padding: 0.75rem;
   margin: 1rem 0;
   border-radius: 10px;
-  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+  box-shadow: rgba(0, 0, 0, 0.3) 0 19px 38px, rgba(0, 0, 0, 0.22) 0 15px 12px;
   border: 2px solid rgba(7, 7, 7, 0.12);
   background-color: rgba(60, 60, 60, 0.8);
 }
@@ -467,6 +467,8 @@ main {
 
 .fiche {
   background-image: url("../../medias/dumbbell-background.jpeg");
+}
+.fiche__content {
   display: flex;
   flex-direction: column;
   display: flex;
@@ -477,7 +479,6 @@ main {
   width: 320px;
   height: 100%;
   padding: 5rem 0;
-  display: flex;
   display: flex;
   flex-direction: column;
   display: flex;
@@ -512,7 +513,7 @@ main {
   font-family: "Oswald", sans-serif;
   text-transform: uppercase;
   transform: rotate(-5deg);
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0 6px 12px -2px, rgba(0, 0, 0, 0.3) 0 3px 7px -3px;
 }
 .fiche .prog__frequence {
   margin-left: 2rem;
@@ -531,13 +532,12 @@ main {
 }
 .fiche .prog__session {
   color: rgba(0, 253, 207, 0.4);
-  font-size: 2rem;
+  font-size: 2.5rem;
   font-family: "Fjalla One";
   letter-spacing: 3px;
 }
 .fiche .exo {
-  display: flex;
-  flex-direction: column;
+  width: 320px;
   margin: 0.8rem 0;
   color: #fff;
   background-color: rgba(60, 60, 60, 0.8);
@@ -702,7 +702,7 @@ main {
     background-color: rgba(41, 41, 41, 0.65);
     margin: 5rem;
     border-radius: 10px;
-    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.24);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.24);
     border: 2px solid rgba(7, 7, 7, 0.12);
     font-size: 1.5rem;
     position: relative;
@@ -729,7 +729,6 @@ main {
     letter-spacing: 3px;
   }
   .home .card .icon {
-    margin: 0 auto;
     padding: 1rem;
     background-color: rgba(0, 253, 207, 0.4);
     border-radius: 100%;
@@ -757,6 +756,46 @@ main {
   }
   .home .card .btn a {
     color: #fff;
+  }
+  .nav_programmes {
+    flex-flow: wrap;
+  }
+  .nav_programmes > ul {
+    margin: 0 3rem;
+  }
+  .fiche__content {
+    width: 100%;
+    backdrop-filter: blur(3px);
+  }
+  .fiche {
+    background-image: url("../../medias/wallpaper-weight.jpeg");
+  }
+  .fiche .prog {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    display: flex;
+    flex-direction: column;
+  }
+  .fiche .prog__session {
+    font-size: 3rem;
+  }
+  .fiche .exo {
+    width: auto;
+    margin: 1rem 3rem;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+  .fiche .exo__content {
+    padding: 0 1rem;
+  }
+  .fiche .exercices {
+    width: 100%;
+  }
+  .graph_container {
+    width: 100%;
   }
 }
 

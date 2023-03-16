@@ -22,21 +22,24 @@
             <div class="bottom" aria-hidden="true">Ton poids</div>
         </h1>
     </section>
-
-    <div class="poids_ref">
-        <?php
-            print('Ton poids de départ est: '.$unClient->getPoidsRef().'kg');
-        ?>
+<section class="poids">
+    <div class="poids__views">
+        <div class="poids__ref">
+            <?php
+                print('Ton poids de départ est: '.$unClient->getPoidsRef().'kg');
+            ?>
+        </div>
+        <div class="poids__vise">
+            <?php
+                print('Ton objectif de poids: '.$unClient->getPoidsVise().'kg');
+            ?>
+        </div>
     </div>
-    <div class="poids_vise">
-        <?php
-            print('Ton objectif de poids: '.$unClient->getPoidsVise().'kg');
-        ?>
-    </div>
-    <div>
+    <div class="poids__add">
         <a href="index.php?page=poids&action=add">Ajouter un poids <i class="fa-solid fa-plus"></i></a>
     </div>
-    <div class="liste_poids">
+
+    <div class="liste__poids">
         <?php
             $tableauPoidsJS = 'let poids = [';
             $tableauDatesJS = 'let dates = [';
@@ -61,7 +64,7 @@
     <div class="graph_container">
         <canvas id="graphCanvas" aria-label="chart" role="img"></canvas>
     </div>
-
+</section>
 </main>
 <footer>
     <?php require_once "includes/partials/footer.phtml"; ?>

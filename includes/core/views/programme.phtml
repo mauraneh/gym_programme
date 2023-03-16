@@ -52,6 +52,7 @@
     <?php
         print('<div class="fiche__content">');
 
+
         foreach ($lesProgrammes as $unProgramme){
             print('<div class="prog">');
             print('<div class="prog__img"> <img src="public/medias/gymLIGHT.jpg" alt="image homme gym"> </div>');
@@ -63,16 +64,20 @@
             foreach ($unProgramme->getSessions() as $uneSession){
                 print('<p class="prog__session">'.$uneSession->getLibelle().'</p>');
 
-                foreach ($uneSession->getExercices() as $unExercice){
-                    print('<div class="exo">');
-                        print('<p class="exo__nom">'.$unExercice.'</p>');
-                            print('<div class="exo__content">');
-                            print('<p class="exo__serie">série: '.$unExercice->getNbreSerie().' </p>');
-                            print('<p class="exo__rep">répétition: '.$unExercice->getNbreRep().' </p>');
-                            print('<p class="exo__pause">pause: '.$unExercice->getPAuse().' min </p>');
+
+                    foreach ($uneSession->getExercices() as $unExercice){
+                        print ('<div class="exercices">');
+                            print('<div class="exo">');
+                                print('<p class="exo__nom">'.$unExercice.'</p>');
+                                print('<div class="exo__content">');
+                                    print('<p class="exo__serie">série: '.$unExercice->getNbreSerie().' </p>');
+                                    print('<p class="exo__rep">répétition: '.$unExercice->getNbreRep().' </p>');
+                                    print('<p class="exo__pause">pause: '.$unExercice->getPAuse().' min </p>');
+                                print('</div>');
+                            print('</div>');
                         print('</div>');
-                    print('</div>');
                 }
+
             }
             print("<a class='btn-rnd' href=\"index.php?page=client&action=setProg&id={$unProgramme->getId()}\">Choisir</a>");
             print('</div>');
