@@ -12,22 +12,25 @@
     <?php require "includes/partials/page_header.phtml"; ?>
 </header>
 <main>
-    <section class="titleH1">
-        <div class="top">C'est l'heure de la pesée du Gymrat:</div>
-        <div class="bottom" aria-hidden="true">C'est l'heure de la pesée du Gymrat:</div>
+    <?php require "includes/partials/navbar.phtml"; ?>
+
+    <section class="title">
+        <div class="main-title">
+            <div class="top">Nouveau poids</div>
+            <div class="bottom" aria-hidden="true">Nouveau poids</div>
+        </div>
+            <h2>Ajoute un <span class="underline">poids</span></h2>
     </section>
 
     <!--------------- ajout du nouveau poids ---------------------------->
-    <form action="" method="post" enctype="multipart/form-data">
-        <div>
+    <form class="formPoids" action="" method="post" enctype="multipart/form-data">
+        <div class="formPoids__label">
             <label for="dateAjout">Date d'ajout du poids: </label><input type="date" name="dateAjout" id="dateAjout" value="<?= $unPoids->getDateAjout()->format('Y-m-d') ?>">
-        </div>
-        <div>
             <label for="valeur">Nouveau poids : </label><input type="number" step="any" name="valeur" id="valeur" value="<?= $unPoids->getValue?>">
         </div>
-        <div>
-            <button type="submit">Valider</button>
-            <button type="reset">Réinitialiser</button>
+        <div class="formPoids__btns">
+            <button class="btn" type="submit">Valider</button>
+            <a class="btn" href="index.php?page=poids">Retour</a>
         </div>
     </form>
     <?= $message ?? '' ?>
@@ -37,5 +40,6 @@
         require_once "includes/partials/footer.phtml";
     ?>
 </footer>
+<script src="public/scripts/scriptMenu.js"></script>
 </body>
 </html>

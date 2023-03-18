@@ -35,6 +35,8 @@
             {
                 $lesPoids = getAllPoids($unClient->getId());
 
+                $unPoids = getLastPoids($unClient->getId());
+
                 require_once 'includes/core/views/poids.phtml';
                 break;
             }

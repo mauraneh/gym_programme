@@ -75,10 +75,11 @@ main {
   width: 100%;
   padding: 0 2rem;
   font-family: $font-title;
-h1 {
-  display: none;
-}
+  .main-title {
+    display: none;
+  }
   h2 {
+    display: block;
     font-size: 2rem;
     text-transform: uppercase;
     line-height: 1;
@@ -346,7 +347,7 @@ h1 {
     .icon {
       margin: 0 auto;
       padding: 1rem;
-      background-color: $color-turquoise;
+      background-color: $color-opacity-turquoise;
       border-radius: 100%;
       display: flex;
       justify-content: center;
@@ -416,7 +417,7 @@ h1 {
       border: 2px solid rgba(7, 7, 7, 0.12);
       background-color: $bg-opacity-grey;
       .dumbell{
-        background-color: $color-turquoise;
+        background-color: $color-opacity-turquoise;
         border-radius: 50%;
         font-size: 2rem;
         padding: 1rem;
@@ -464,7 +465,7 @@ h1 {
       }
     }
     &__frequence, &__title{
-      background: $color-turquoise;
+      background: $color-opacity-turquoise;
       padding: .5rem 1.6rem;
       margin: .3rem;
       flex-grow: 0;
@@ -523,8 +524,79 @@ h1 {
 
 
 //POIDS------------- CHART -----------------------------------
+.poids{
+  &__views{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-gap: 2rem;
+  }
+  &__start, &__goal, &__now{
+    p {
+      max-width: 20rem;
+      background: $color-opacity-turquoise;
+      margin: 0 auto;
+      padding: 1rem;
+      text-align: center;
+      font-size: 1.3rem;
+      color: $color-logo-black;
+      font-family: $font-title;
+      text-transform: uppercase;
+      transform: rotate(-5deg);
+      box-shadow: rgba(50, 50, 93, 0.25) 0 6px 12px -2px, rgba(0, 0, 0, 0.3) 0 3px 7px -3px;
+    }
+    span{
+      @include displayFlexCenter;
+      padding: 1rem;
+      font-size: 2rem;
+      letter-spacing: 3px;
+      font-weight: 600;
+      font-family: $font-title;
+      text-transform: uppercase;
+    }
+  }
+  &__add{
+    @include displayFlexCenter;
+  }
+}
 .graph_container{
-  width: 50%;
+  width: 100%;
+}
+//-------------NOUVEAU POIDS-----------------------------------
+.formPoids{
+  @include displayFlexColumn;
+  justify-content: space-between;
+  width: 20rem;
+  min-height: 400px;
+  height: auto;
+  border-radius: 5px;
+  margin: 2rem auto;
+  box-shadow: 0 9px 50px hsla(109, 32%, 30%, 0.31);
+  padding: 1rem;
+  background-color: $color-bg-grey;
+  font-family: $font-face;
+  font-size: 1.4rem;
+  &__label{
+    @include displayFlexCenter;
+    flex-direction: column;
+    letter-spacing: 1px;
+    margin: 2rem 0;
+    label{
+      margin: 1rem 0;
+    }
+    input{
+      font-size: 1.1rem;
+      font-family: $font-face;
+      outline: transparent;
+      background-color: transparent;
+      cursor: pointer;
+      border: none;
+      border-bottom: 3px solid $color-turquoise;
+    }
+  }
+  &__btns{
+    @include displayFlexCenter;
+    flex-direction: column;
+  }
 }
 //-------------FOOTER-----------------------------------
 .footer{
@@ -588,23 +660,19 @@ h1 {
     padding: 0 2rem;
     font-family: $font-title;
 
-    h1 {
+    .main-title {
       display: grid;
       place-content: center;
-      min-height: 9vh;
       font-size: clamp(1.5rem, 1rem + 3vw, 3rem);
       font-weight: 700;
       text-transform: uppercase;
       color: $color-opacity-light;
-
       > div {
         grid-area: 1/1/-1/-1;
       }
-
       .top {
         clip-path: polygon(0% 0%, 100% 0%, 100% 48%, 0% 58%);
       }
-
       .bottom {
         clip-path: polygon(0% 60%, 100% 50%, 100% 100%, 0% 100%);
         color: transparent;
@@ -621,7 +689,6 @@ h1 {
       text-transform: uppercase;
       line-height: 1;
       color: $color-white;
-
     }
   }
 
@@ -760,12 +827,33 @@ h1 {
   }
   .exercices{
     width: 100%;
-  }
+    }
   }
 
   //POIDS------------- CHART -----------------------------------
   .graph_container{
     width: 100%;
+    max-width: 70rem;
+    margin: 0 auto;
   }
-
+  .poids{
+    &__start, &__goal, &__now{
+      @include displayFlexColumn;
+      @include displayFlexCenter;
+      p {
+        max-width: 25rem;
+        margin: 2rem 2rem;
+        padding: 2rem 1rem;
+        font-size: 2rem;
+      }
+      span{
+        padding: 1rem;
+        font-size: 2.5rem;
+        letter-spacing: 3px;
+        font-weight: 600;
+        font-family: $font-title;
+        text-transform: uppercase;
+      }
+    }
+  }
 }

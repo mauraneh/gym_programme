@@ -17,26 +17,41 @@
     <?php require "includes/partials/navbar.phtml"; ?>
 
     <section class="title">
-        <h1>
+        <div class="main-title">
             <div class="top">Ton poids</div>
             <div class="bottom" aria-hidden="true">Ton poids</div>
-        </h1>
+        </div>
+            <h2>Tu pèses <span class="underline">combien</span> ?</h2>
     </section>
 <section class="poids">
     <div class="poids__views">
-        <div class="poids__ref">
+        <div class="poids__start">
             <?php
-                print('Ton poids de départ est: '.$unClient->getPoidsRef().'kg');
+                print('<p> Ton poids de départ est: </p>');
+                print('<span>'.$unClient->getPoidsRef().' kg</span>');
             ?>
         </div>
-        <div class="poids__vise">
+        <div class="poids__now">
             <?php
-                print('Ton objectif de poids: '.$unClient->getPoidsVise().'kg');
+                print('<p>Ton poids actuel:</p>');
+                if($unPoids->getValeur() > $unClient->getPoidsRef())
+                {
+                    print('<span class="required">'.$unPoids->getValeur().' kg</span>');
+                }else{
+                    print('<span>'.$unPoids->getValeur().' kg</span>');
+                }
+
+            ?>
+        </div>
+        <div class="poids__goal">
+            <?php
+                print('<p>Ton objectif de poids: </p>');
+                print('<span>'.$unClient->getPoidsVise().' kg</span>');
             ?>
         </div>
     </div>
     <div class="poids__add">
-        <a href="index.php?page=poids&action=add">Ajouter un poids <i class="fa-solid fa-plus"></i></a>
+        <a class="btn" href="index.php?page=poids&action=add">Ajouter un poids <i class="fa-solid fa-plus"></i></a>
     </div>
 
     <div class="liste__poids">
@@ -51,7 +66,7 @@
 
                     //Pour tests
                     $tableauPoidsJS .= $unPoids->getValeur().',';
-                    $tableauDatesJS .= '\''.$unPoids->getDateAjout()->format('Y-m-d').'\',';
+                    $tableauDatesJS .= '\''.$unPoids->getDateAjout()->format('d-m-y').'\',';
                 }
             }
 

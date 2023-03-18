@@ -99,10 +99,11 @@ main {
   padding: 0 2rem;
   font-family: "Oswald", sans-serif;
 }
-.title h1 {
+.title .main-title {
   display: none;
 }
 .title h2 {
+  display: block;
   font-size: 2rem;
   text-transform: uppercase;
   line-height: 1;
@@ -268,7 +269,7 @@ main {
   color: rgb(0, 0, 0);
 }
 .newcontact__form input:focus, .newcontact__form select:focus {
-  border-bottom: 2px solid rgba(0, 253, 207, 0.4);
+  border-bottom: 2px solid rgb(0, 253, 207);
 }
 .newcontact__form label {
   color: #6e7781;
@@ -359,7 +360,7 @@ main {
   margin: 0.8rem 0;
 }
 .home .card .text span {
-  color: rgba(0, 253, 207, 0.4);
+  color: rgb(0, 253, 207);
 }
 .home .card .icon {
   margin: 0 auto;
@@ -385,7 +386,7 @@ main {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  color: rgba(0, 253, 207, 0.4);
+  color: rgb(0, 253, 207);
   font-size: 2.5rem;
   padding: 2rem 0;
   background-color: #eee;
@@ -461,7 +462,7 @@ main {
 }
 .nav_programmes > ul > li > p {
   font-size: 1.3rem;
-  color: rgba(0, 253, 207, 0.4);
+  color: rgb(0, 253, 207);
   font-weight: lighter;
 }
 
@@ -531,7 +532,7 @@ main {
   text-transform: uppercase;
 }
 .fiche .prog__session {
-  color: rgba(0, 253, 207, 0.4);
+  color: rgb(0, 253, 207);
   font-size: 2.5rem;
   font-family: "Fjalla One";
   letter-spacing: 3px;
@@ -552,15 +553,92 @@ main {
   justify-content: center;
   padding: 1rem 0;
   font-size: 1.4rem;
-  border-left: 2px solid rgba(0, 253, 207, 0.4);
+  border-left: 2px solid rgb(0, 253, 207);
   text-align: center;
 }
 .fiche .exo__serie, .fiche .exo__rep, .fiche .exo__pause {
   padding: 0 1rem;
 }
 
+.poids__views {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 2rem;
+}
+.poids__start p, .poids__goal p, .poids__now p {
+  max-width: 20rem;
+  background: rgba(0, 253, 207, 0.4);
+  margin: 0 auto;
+  padding: 1rem;
+  text-align: center;
+  font-size: 1.3rem;
+  color: #000;
+  font-family: "Oswald", sans-serif;
+  text-transform: uppercase;
+  transform: rotate(-5deg);
+  box-shadow: rgba(50, 50, 93, 0.25) 0 6px 12px -2px, rgba(0, 0, 0, 0.3) 0 3px 7px -3px;
+}
+.poids__start span, .poids__goal span, .poids__now span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  font-size: 2rem;
+  letter-spacing: 3px;
+  font-weight: 600;
+  font-family: "Oswald", sans-serif;
+  text-transform: uppercase;
+}
+.poids__add {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .graph_container {
-  width: 50%;
+  width: 100%;
+}
+
+.formPoids {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 20rem;
+  min-height: 400px;
+  height: auto;
+  border-radius: 5px;
+  margin: 2rem auto;
+  box-shadow: 0 9px 50px hsla(109deg, 32%, 30%, 0.31);
+  padding: 1rem;
+  background-color: #eee;
+  font-family: "Fjalla One";
+  font-size: 1.4rem;
+}
+.formPoids__label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  letter-spacing: 1px;
+  margin: 2rem 0;
+}
+.formPoids__label label {
+  margin: 1rem 0;
+}
+.formPoids__label input, .formPoids__label .newcontact__form select, .newcontact__form .formPoids__label select {
+  font-size: 1.1rem;
+  font-family: "Fjalla One";
+  outline: transparent;
+  background-color: transparent;
+  cursor: pointer;
+  border: none;
+  border-bottom: 3px solid rgb(0, 253, 207);
+}
+.formPoids__btns {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 
 .footer {
@@ -627,22 +705,21 @@ main {
     padding: 0 2rem;
     font-family: "Oswald", sans-serif;
   }
-  .title h1 {
+  .title .main-title {
     display: grid;
     place-content: center;
-    min-height: 9vh;
     font-size: clamp(1.5rem, 1rem + 3vw, 3rem);
     font-weight: 700;
     text-transform: uppercase;
     color: hsl(0deg, 0%, 100%);
   }
-  .title h1 > div {
+  .title .main-title > div {
     grid-area: 1/1/-1/-1;
   }
-  .title h1 .top {
+  .title .main-title .top {
     clip-path: polygon(0% 0%, 100% 0%, 100% 48%, 0% 58%);
   }
-  .title h1 .bottom {
+  .title .main-title .bottom {
     clip-path: polygon(0% 60%, 100% 50%, 100% 100%, 0% 100%);
     color: transparent;
     background: -webkit-linear-gradient(177deg, black 53%, hsl(0deg, 0%, 100%) 65%);
@@ -730,7 +807,7 @@ main {
   }
   .home .card .icon {
     padding: 1rem;
-    background-color: rgba(0, 253, 207, 0.4);
+    background-color: rgb(0, 253, 207);
     border-radius: 100%;
     display: flex;
     justify-content: center;
@@ -796,6 +873,29 @@ main {
   }
   .graph_container {
     width: 100%;
+    max-width: 70rem;
+    margin: 0 auto;
+  }
+  .poids__start, .poids__goal, .poids__now {
+    display: flex;
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .poids__start p, .poids__goal p, .poids__now p {
+    max-width: 25rem;
+    margin: 2rem 2rem;
+    padding: 2rem 1rem;
+    font-size: 2rem;
+  }
+  .poids__start span, .poids__goal span, .poids__now span {
+    padding: 1rem;
+    font-size: 2.5rem;
+    letter-spacing: 3px;
+    font-weight: 600;
+    font-family: "Oswald", sans-serif;
+    text-transform: uppercase;
   }
 }
 
