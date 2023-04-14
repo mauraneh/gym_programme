@@ -1,0 +1,37 @@
+<?php
+    ini_set('display_errors', 'on');
+    require_once "includes/core/globals.php";
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <?php require "includes/partials/page_head.phtml"; ?>
+</head>
+<body>
+<header>
+    <?php require "includes/partials/page_header.phtml"; ?>
+</header>
+<main>
+    <?php require "includes/partials/navbar.phtml"; ?>
+    <section class="title">
+        <div class="main-title">
+            <div class="top">Termes et conditions</div>
+            <div class="bottom" aria-hidden="true">Termes et conditions</div>
+        </div>
+        <h2>Conditions <span class="underline">générales</span></h2>
+    </section>
+<section>
+    <h1>Conditions générales de ventes </h1>
+    <h2>Clause n° 1 : Objet</h2>
+
+</section>
+    <?= $message ?? '' ?>
+</main>
+<footer>
+    <?php
+        require_once "includes/partials/footer.phtml";
+    ?>
+</footer>
+</body>
+<?php require_once "includes/partials/footer.phtml"; ?>
+</html>

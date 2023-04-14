@@ -15,64 +15,43 @@
     <nav>
         <?php require_once "includes/partials/navbar.phtml"; ?>
     </nav>
-    <section class="title">
-        <section class="title">
+     <section class="title">
             <div class="main-title">
                 <div class="top">Guide des exercices</div>
                 <div class="bottom" aria-hidden="true">Guide des exercices</div>
             </div>
                 <h2>Guide des <span class="underline">exercices</span></h2>
-        </section>
     </section>
 
-    <form>
-        <label for="exercices">Liste des exercices: </label>
-        <select name="exercices" id="exercices">
-            <option value="0">-- Sélectionner --</option>
-            <?php
-                foreach ($lesExercices as $unExercice) {
-                    print('<option value="'.$unExercice->getId().'">'.$unExercice.'</option>');
-                }
-            ?>
-        </select>
-    </form>
-
-    <article>
-
-    </article>
-    <div id="infosExercices">
-
-    </div>
+    <section class="guideExercices">
+        <div class="guideExercices__container">
+        <form class="formGuide" action="" method="post" enctype="multipart/form-data">
+            <div class="formGuide__select">
+                <label class="subTitle" for="exercices">Liste des exercices: </label>
+                <select name="exercices" id="exercices">
+                    <option value="0">-- Sélectionner --</option>
+                    <?php
+                        foreach ($lesExercices as $unExercice) {
+                            print('<option value="'.$unExercice->getId().'">'.$unExercice.'</option>');
+                        }
+                    ?>
+                </select>
+            </div>
+            <div class="formGuide__media" id="infosExercices">
+            <!-- video injectée via la BDD voir script guideExercices.js -->
+            </div>
+        </form>
+        </div>
+    </section>
     <footer>
-        <?php require_once "includes/partials/footer.phtml"; ?>
+        <?php
+            require_once "includes/partials/footer.phtml";
+            require_once "includes/partials/userMenu.phtml";
+        ?>
     </footer>
 </main>
-<script>
-    document.querySelector('select').addEventListener('change', function(){
-            let id = document.querySelector('select').selectedOptions[0].value;
-console.log(id);
-            fetch('index.php?page=api&action=listeRessource&id=' + id)
-                .then(function (response){
-                    document.querySelector('#infosExercices').innerHTML = '';
-                    response.json().then(function (data){
-
-                        let titreVideo = document.createElement('h3');
-                        titreVideo.innerText = data[0].nom;
-                        document.querySelector('#infosExercices').appendChild(titreVideo);
-
-//TODO: faire un foreach data qui parcours toutes les ressources et en focntion du type de ressource faire un if en
-
-                        let video = document.createElement("iframe");
-                        // récupérer l'URL de la vidéo à partir de la base de données
-                        let urlVideo = data[0].url;
-                        // assigner l'URL à la propriété src de l'élément iframe
-                        video.setAttribute('src', urlVideo);
-                        document.querySelector('#infosExercices').appendChild(video);
-
-                    })
-                })
-        });
-</script>
-<script src="public/scripts/scriptMenu.js"></script>
+<?php
+    require_once "includes/partials/scripts.phtml";
+?>
 </body>
 </html>

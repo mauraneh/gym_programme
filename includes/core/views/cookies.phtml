@@ -1,0 +1,54 @@
+<?php
+    ini_set('display_errors', 'on');
+    require_once "includes/core/globals.php";
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <?php require "includes/partials/page_head.phtml"; ?>
+</head>
+<body>
+<header>
+    <?php require "includes/partials/page_header.phtml"; ?>
+</header>
+<main>
+    <?php require "includes/partials/navbar.phtml"; ?>
+    <section class="title">
+        <div class="main-title">
+            <div class="top">Mentions légales</div>
+            <div class="bottom" aria-hidden="true">Mentions légales</div>
+        </div>
+        <h2>Mentions  <span class="underline">légales</span></h2>
+    </section>
+    <section>
+        <h1>MENTIONS LÉGALES </h1>
+        <p>
+            Nom du site : GYMRAT PROGRAMME
+
+            Adresse du site :
+
+            Propriétaire : HUGON Maurane
+
+            Statut :
+
+            Adresse e-mail : hugonmauranepro@gmail.com
+
+            Hébergeur :
+
+            Adresse :
+
+            Numéro d’immatriculation :
+
+            Numéro de TVA : </p>
+
+    </section>
+    <?= $message ?? '' ?>
+</main>
+<footer>
+    <?php
+        require_once "includes/partials/footer.phtml";
+    ?>
+</footer>
+</body>
+<?php require_once "includes/partials/footer.phtml"; ?>
+</html>
