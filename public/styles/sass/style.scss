@@ -151,6 +151,28 @@ main {
     left: -110px;
   }
 }
+//OPTION--------------------UP--------------------------
+.up_top{
+  cursor: pointer;
+  padding: .5rem 1rem;
+  background-color: $color-background;
+  position: fixed;
+  bottom: 0;
+  right: 600px;
+  border-radius: .1rem;
+
+  > a{
+    font-family: $font-title;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-size: 1.1rem;
+    color: $color-frgn-text;
+    > i{
+      font-size: 2rem;
+      color: $color-opacity-turquoise;
+    }
+  }
+}
 //MENU--------------------MENU NAV BAR-------------------
 .navbar{
   font-family: $font-face;
@@ -313,9 +335,7 @@ main {
   font-family: $font-face;
   @include displayFlexCenterEvenly;
   width: 100%;
-  background-image: url("../../medias/womanLiftingBG.jpg");
-  background-size: cover;
-  background-position: center;
+  background: $background-rainbow;
 
   .card {
     @include displayFlexColumn;
@@ -323,7 +343,7 @@ main {
     width: 100%;
     max-width: 300px;
     height: auto;
-    background-color: rgba(41, 41, 41, 0.65);
+    background-color: $color-bg-card;
     margin: 3rem;
     border-radius: 10px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.24);
@@ -384,7 +404,7 @@ main {
   color: $color-turquoise;
   font-size: 2.5rem;
   padding: 2rem 0;
-  background-color: $color-bg-grey;
+  background: $bg-pattern;
 }
 .btns-prog{
   @include displayFlexCenterEvenly;
@@ -412,7 +432,7 @@ main {
   }
 }
 .nav_programmes{
-  background-image: url("../../medias/bg-DB.jpeg");
+  background: $background-topography;
   @include displayFlexColumn;
   @include displayFlexCenter;
   >ul{
@@ -428,7 +448,7 @@ main {
       border-radius: 10px;
       box-shadow: rgba(0, 0, 0, 0.3) 0 19px 38px, rgba(0, 0, 0, 0.22) 0 15px 12px;
       border: 2px solid rgba(7, 7, 7, 0.12);
-      background-color: $bg-opacity-grey;
+      background-color: $color-bg-card;
       .dumbell{
         background-color: $color-opacity-turquoise;
         border-radius: 50%;
@@ -450,7 +470,7 @@ main {
   }
 }
 .fiche{
-  background-image: url("../../medias/dumbbell-background.jpeg");
+  background: $background-topography;
   &__content{
     @include displayFlexColumn;
     @include displayFlexCenter;
@@ -517,7 +537,7 @@ main {
     width: 320px;
     margin: .8rem 0;
     color: $color-white;
-    background-color: $bg-opacity-grey;
+    background-color: $color-bg-card;
     padding: 2rem;
     &__nom{
       font-size: 1.7rem;
@@ -538,6 +558,7 @@ main {
 
 //POIDS------------- CHART -----------------------------------
 .poids{
+  background: $background-rain;
   &__views{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -615,7 +636,7 @@ main {
 .guideExercices{
   width: 100%;
   padding: 4rem 0;
-  background-image: url("https://picsum.photos/1200");
+  background: $background-wavy;
 }
 .formGuide{
   @include displayFlexColumn;
@@ -623,7 +644,7 @@ main {
   font-family: $font-title;
   width: 100%;
   max-width: 900px;
-  background-color: rgba(41, 41, 41, 0.65);
+  background: $color-bg-card;
   margin: 0 auto;
   border-radius: 10px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.24);
@@ -653,6 +674,7 @@ main {
       font-weight: 200;
       letter-spacing: 2px;
       padding: .5rem;
+      border: 1px solid $color-opacity-turquoise;
     }
   }
   &__media{
@@ -858,9 +880,7 @@ main {
     font-family: $font-title;
     @include displayFlexCenterEvenly;
     width: 100%;
-    background-image: url("../../medias/gymLIGHT.jpg");
-    background-size: cover;
-    background-position: center;
+    background: $background-wavy;
 
     .card {
       @include displayFlexColumn;
@@ -941,7 +961,6 @@ main {
     backdrop-filter: blur(3px);
   }
 .fiche{
-  background-image: url("../../medias/wallpaper-weight.jpeg");
   .prog{
     width: 100%;
     @include displayFlexCenterEvenly;

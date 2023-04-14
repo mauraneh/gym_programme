@@ -37,6 +37,11 @@
             ?>
         </div>
         <div class="btn">
+        <?php
+            print("<a href=\"index.php?page=programme#{$unClient->getProgramme()->getId()}\"> Afficher le programme </a>");
+        ?>
+        </div>
+        <div class="btn">
             <a href="index.php?page=programme"><i class="fa-solid fa-dumbbell"></i>Tous les programmes</a>
         </div>
     </section>
@@ -72,6 +77,7 @@
     <footer>
         <?php
             require_once "includes/partials/userMenu.phtml";
+            require_once "includes/partials/back_to_the_top.phtml";
             ?>
     </footer>
     </div>
