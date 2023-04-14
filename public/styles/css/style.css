@@ -612,7 +612,7 @@ main {
   width: 100%;
 }
 
-.formPoids {
+.formPoids, .contact {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -717,6 +717,64 @@ main {
   width: 100%;
   height: 100%;
   border: 0;
+}
+
+.contact__input {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  letter-spacing: 1px;
+  margin: 1rem 0;
+}
+.contact__input label {
+  margin: 1rem 0;
+}
+.contact__input input, .contact__input .newcontact__form select, .newcontact__form .contact__input select {
+  font-size: 1.1rem;
+  font-family: "Fjalla One";
+  outline: transparent;
+  background-color: transparent;
+  cursor: pointer;
+  border: none;
+  border-bottom: 3px solid rgb(0, 253, 207);
+}
+.contact__input textarea {
+  background-color: transparent;
+  width: 100%;
+  outline: 2px solid rgb(0, 253, 207);
+  border-radius: 4px;
+  box-shadow: rgba(0, 0, 0, 0.05) 0 6px 24px 0, rgba(0, 0, 0, 0.08) 0 0 0 1px;
+  font-family: "Oswald", sans-serif;
+  font-size: 1.3rem;
+}
+
+.cookies, .mentions-legales {
+  max-width: 50rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+}
+.cookies h1, .mentions-legales h1 {
+  font-size: 2rem;
+  text-align: center;
+  margin: 2rem;
+}
+.cookies h4, .mentions-legales h4 {
+  text-align: center;
+  text-transform: uppercase;
+  font-family: "Oswald", sans-serif;
+  font-size: 1.5rem;
+  margin: 1rem;
+}
+.cookies p, .mentions-legales p {
+  text-align: center;
+  margin: 2rem;
+}
+
+.mentions-legales p {
+  margin: 1rem;
 }
 
 .footer {
@@ -980,6 +1038,9 @@ main {
   }
   .formGuide__select select {
     font-size: 1.3rem;
+  }
+  .formPoids, .contact {
+    width: 40rem;
   }
 }
 

@@ -16,7 +16,7 @@ require_once 'includes/core/views/form_contact.phtml';
             }
 
             //on va envoyer un mail à l'administrateur
-            $to = 'maurane.hugon@gmail.com';
+            $to = 'hugonmauranepro@gmail.com';
             $subject = 'Contact de gymrat';
             $message = 'Bonjour, vous avez reçu un message de la part de
              ' . $_POST['nom'] . ' ' . $_POST['prenom'] . ' ' . $_POST['email'] . ' ' . $_POST['message'];

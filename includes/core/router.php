@@ -56,6 +56,14 @@
             require_once "includes/core/views/confirmation.phtml";
             break;
         }
+        case 'mentionslegales':{
+            require_once "includes/core/views/mentions_legales.phtml";
+            break;
+        }
+        case 'cookies':{
+            require_once "includes/core/views/cookies.phtml";
+            break;
+        }
 		default:{
 			require_once "includes/core/controllers/controller_error.php";
 		}
