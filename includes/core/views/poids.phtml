@@ -58,7 +58,7 @@
         <?php
             $tableauPoidsJS = 'let poids = [';
             $tableauDatesJS = 'let dates = [';
-            //var_dump($lesPoids);
+
             foreach ($lesPoids as $unPoids){
                 if($unPoids->getValeur()){
                     $unPoids->getValeur();
@@ -69,7 +69,7 @@
                     $tableauDatesJS .= '\''.$unPoids->getDateAjout()->format('d-m-y').'\',';
                 }
             }
-
+            //tableaux Jjs à partir des données PHP et suppriment les virgules en trop:
             $tableauPoidsJS = substr($tableauPoidsJS, 0, strlen($tableauPoidsJS) - 1).'];';
             $tableauDatesJS = substr($tableauDatesJS, 0, strlen($tableauDatesJS) - 1).'];';
         ?>

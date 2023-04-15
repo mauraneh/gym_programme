@@ -106,9 +106,6 @@
             deleteClient($unClient);
             deleteUser($unClient->getUser());
 
-
-
-
                 $message = 'Compte supprimé.';
                 header('Location: index.php');
 

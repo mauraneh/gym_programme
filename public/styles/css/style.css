@@ -127,6 +127,36 @@ main {
   background-position: 0;
 }
 
+.up_top {
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  background-color: rgba(249, 249, 249, 0.39);
+  position: fixed;
+  bottom: 0;
+  right: 105px;
+  border-radius: 0.1rem;
+}
+.up_top > a {
+  font-family: "Oswald", sans-serif;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-size: 1.1rem;
+  color: #6e7781;
+}
+.up_top > a > i {
+  font-size: 2rem;
+  color: rgba(0, 253, 207, 0.4);
+}
+
+.messageAlert {
+  text-align: center;
+  margin: 0 auto;
+  text-transform: uppercase;
+  color: #6e7781;
+  font-weight: bolder;
+  font-family: "Fjalla One";
+}
+
 .userProfil {
   cursor: pointer;
   padding: 0.8rem;
@@ -169,27 +199,6 @@ main {
   position: absolute;
   bottom: 128px;
   left: -110px;
-}
-
-.up_top {
-  cursor: pointer;
-  padding: 0.5rem 1rem;
-  background-color: rgba(249, 249, 249, 0.39);
-  position: fixed;
-  bottom: 0;
-  right: 600px;
-  border-radius: 0.1rem;
-}
-.up_top > a {
-  font-family: "Oswald", sans-serif;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  font-size: 1.1rem;
-  color: #6e7781;
-}
-.up_top > a > i {
-  font-size: 2rem;
-  color: rgba(0, 253, 207, 0.4);
 }
 
 .navbar {
@@ -305,9 +314,29 @@ main {
 .newcontact__form input:focus, .newcontact__form select:focus {
   border-bottom: 2px solid rgb(0, 253, 207);
 }
+.newcontact__form input:invalid:focus, .newcontact__form select:invalid:focus {
+  border-color: red;
+}
+.newcontact__form input:invalid:not(:placeholder-shown), .newcontact__form select:invalid:not(:placeholder-shown) {
+  border-color: red;
+}
+.newcontact__form .errorMessage {
+  color: red;
+  font-size: 12px;
+  margin-left: 5px;
+  display: none;
+}
+.newcontact__form input:invalid:not(:placeholder-shown) + .errorMessage, .newcontact__form select:invalid:not(:placeholder-shown) + .errorMessage {
+  display: block;
+}
 .newcontact__form label {
   color: #6e7781;
   margin-top: 1rem;
+}
+
+.inputTel {
+  display: flex;
+  flex-direction: column;
 }
 
 .cont_btn {

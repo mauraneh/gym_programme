@@ -26,7 +26,7 @@
     <form class="formPoids" action="" method="post" enctype="multipart/form-data">
         <div class="formPoids__label">
             <label for="dateAjout">Date d'ajout du poids: </label><input type="date" name="dateAjout" id="dateAjout" value="<?= $unPoids->getDateAjout()->format('Y-m-d') ?>">
-            <label for="valeur">Nouveau poids : </label><input type="number" step="any" name="valeur" id="valeur" value="<?= $unPoids->getValeur() ?>">
+            <label for="valeur">Nouveau poids : </label><input type="number" step="any" name="valeur" id="valeur" value="">
         </div>
         <div class="formPoids__btns">
             <button class="btn" type="submit">Valider</button>

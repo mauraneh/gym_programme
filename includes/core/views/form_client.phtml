@@ -64,7 +64,13 @@
             <label for="email">E-mail : <span class="required">*</span> </label><input type="email" name="email" id="email" value="<?= $unClient->getEmail() ?>" required>
         </div>
         <div>
-            <label for="telephone">Téléphone : <span class="required">*</span> </label><input type="tel" name="telephone" id="telephone" value="<?= $unClient->getTel() ?>" required>
+            <label for="telephone">Téléphone : <span class="required">*</span> </label>
+            <div class="inputTel">
+            <input type="tel" name="telephone" id="telephone"  value="<?= $unClient->getTel() ?>" required pattern="^\d{10}$"
+                   oninvalid="setCustomValidity('Le numéro de téléphone doit être composé de 10 chiffres')"
+                   onchange="try{setCustomValidity('')}catch(e){}">
+            <span class="errorMessage">Le numéro de téléphone doit être composé de 10 chiffres</span>
+            </div>
         </div>
 
         <div>
@@ -91,6 +97,6 @@
 
     <?= $message ?? '' ?>
 </main>
-<script src="public/scripts/scriptMenu.js"></script>
+<script src="public/scripts/hideZeroInput.js"></script>
 </body>
 </html>

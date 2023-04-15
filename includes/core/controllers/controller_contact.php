@@ -1,34 +1,33 @@
 <?php
-require_once 'includes/core/views/form_contact.phtml';
+    ini_set('display_errors', 1);
+    error_reporting(E_ALL);
 
 
-    //Envoi d'un mail à l'administrateur a la validation du formulaire
-    if (!empty($_POST)) {
-        // le formulaire à été envoyé
-        // on verifie que les champs sont remplis
-        if (isset($_POST['nom']) && isset($_POST['prenom']) && isset($_POST['email']) && isset($_POST['message'])
-            && !empty($_POST['nom']) && !empty($_POST['prenom']) && !empty($_POST['email']) && !empty($_POST['message'])
-        ) {
-            //le formulaire est complet et les champs sont remplis.
-            //on vérifie si l'email est valide  (filter_var)
-            if (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
-                die(' <div class="error"> Email invalide </div>');
-            }
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        // récupérer les données du formulaire
+        $nom = $_POST['nom'] ?? '';
+        $prenom = $_POST['prenom'] ?? '';
+        $email = $_POST['email'] ?? '';
+        $message = $_POST['message'] ?? '';
 
-            //on va envoyer un mail à l'administrateur
-            $to = 'hugonmauranepro@gmail.com';
-            $subject = 'Contact de gymrat';
-            $message = 'Bonjour, vous avez reçu un message de la part de
-             ' . $_POST['nom'] . ' ' . $_POST['prenom'] . ' ' . $_POST['email'] . ' ' . $_POST['message'];
-            $headers = 'From: ' . $_POST['email'] . "\r\n" .
-                'Reply-To: ' . $_POST['email'] . "\r\n" .
-                'X-Mailer: PHP/' . phpversion();
+        // valider les données du formulaire
+        if (empty($nom) || empty($prenom) || empty($email) || empty($message)) {
+            $message_alert = 'Veuillez remplir tous les champs du formulaire.';
+        } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            $message_alert = 'Veuillez saisir une adresse email valide.';
+        } else {
+            // envoyer l'email
+            $to = 'maurane.hugon@gmail.com';
+            $subject = 'Nouveau message de formulaire de contact';
+            $message_body = "Nom: $nom\nPrénom: $prenom\nEmail: $email\n\nMessage:\n$message";
+            $headers = "From: $email\r\n";
 
-            // message confirmation mail envoyé
-            if (mail($to, $subject, $message, $headers)) {
-                echo 'Votre message a bien été envoyé';
+            if (mail($to, $subject, $message_body, $headers)) {
+                $message_alert = 'Votre message a été envoyé avec succès.';
             } else {
-                echo 'Une erreur est survenue lors de l\'envoi du mail';
+                $message_alert = 'Une erreur s\'est produite lors de l\'envoi de votre message.';
             }
         }
     }
+
+    require_once 'includes/core/views/form_contact.phtml';

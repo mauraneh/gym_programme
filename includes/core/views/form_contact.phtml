@@ -21,6 +21,7 @@
             <h2>Dis-nous <span class="underline">tout</span></h2>
     </section>
     <!--------------- CONTACT ---------------------------->
+
     <article class="contact">
         <form class="contact__form" action="" method="POST" enctype="multipart/form-data">
             <div class="contact__input">
@@ -47,14 +48,18 @@
             <button class="btn" type="submit">Envoyer</button>
             </div>
 
+            <div class="messageAlert">
+                <?= $message_alert ?? '' ?>
+            </div>
         </form>
     </article>
-    <?= $message ?? '' ?>
 </main>
 <footer>
     <?php
         require_once "includes/partials/footer.phtml";
+        require_once "includes/partials/back_to_the_top.phtml";
     ?>
 </footer>
+<script src="public/scripts/scriptMenu.js"></script>
 </body>
 </html>
