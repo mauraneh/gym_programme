@@ -137,51 +137,54 @@ main {
   font-family: $font-face;
 }
 //MENU-------------------- USER MENU------------------
-.userProfil{
+.userProfil {
   cursor: pointer;
   padding: .8rem;
-  background-color: $color-background;
-  border-radius: 50%;
-  position: fixed;
-  bottom: 135px;
-  right: 25px;
-  box-shadow: rgba(0, 0, 0, 0.25) 0 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
-  &__logo{
-    img{
-      width: 5rem;
-      &:hover{
-        transition: all 3s ease-in-out;
-        filter: blur(1px);
-      }
+  @include displayFlexColumn;
+  &__list {
+    z-index: 99;
+    position: absolute;
+    top: 45%;
+    left: 45%;
+    transform: translate(-50%, -50%);
+    text-transform: uppercase;
+    text-align: center;
+    font-size: .9rem;
+    color: $color-white;
+    margin:0 1rem;
+    &:hover {
+      color: $color-turquoise;
+      transition: all 0.3s ease;
     }
+    a{
+      transition: all 1s ease-out;
+      color: $color-logo-black;
+    }
+    li{
+      padding: .2rem 0;
+    }
+    i{
+      color: $color-logo-black;
+      padding: .2rem 0;
+      font-size: 1.8rem;
+    }
+  }
+  &__menu {
+    z-index: 100;
+    background-image: url("../../medias/smallBulleBD.png");
+    width: 300px;
+    height: 226px;
+    position: fixed;
+    top: 300px;
+    right: 0px;
   }
   &__userName{
     font-size: 1rem;
     text-transform:uppercase;
     text-align:center;
   }
-  &__list{
-    font-size: .8rem;
-    color: $color-white;
-    margin:0 1rem;
-    text-transform:uppercase;
-    text-align:center;
-    a{
-      transition: all 1s ease-out;
-      color: $color-logo-black;
-      &:hover{
-        color: $color-turquoise;
-        font-weight: 600;
-      }
-    }
-  }
-  &__menu{
-    width: 20rem;
-    position: absolute;
-    bottom: 128px;
-    left: -110px;
-  }
 }
+
 
 //MENU--------------------MENU NAV BAR-------------------
 .navbar{
@@ -871,7 +874,7 @@ main {
         transform: translateX(-0.02em);
       }
     }
-
+//H2--------------------
     h2 {
       font-size: 2rem;
       text-transform: uppercase;
@@ -879,34 +882,39 @@ main {
       color: $color-white;
     }
   }
-
+//USER MENU ------------
   .userProfil {
-    position: fixed;
-    bottom: 111px;
-    right: 25px;
-    font-family: $font-title;
-
-    &__logo {
-      img {
-        width: 8rem;
-      }
-    }
-
+    @include displayFlexColumn;
     &__list {
-      font-size: 1.5rem;
+      z-index: 99;
+      position: absolute;
+      top: 45%;
+      left: 45%;
+      transform: translate(-50%, -50%);
+      font-size: 2rem;
       color: $color-white;
       margin: 0 1rem;
       text-transform: uppercase;
       text-align: center;
+      &:hover {
+        color: $color-turquoise;
+        transition: all 0.3s ease;
+      }
+      li{
+        padding: .7rem 0;
+      }
     }
-
     &__menu {
-      width: 40rem;
-      position: absolute;
-      bottom: 128px;
-      left: -320px;
+      z-index: 100;
+      background-image: url("../../medias/bulleBD.png");
+      width: 600px;
+      height: 452px;
+      position: fixed;
+      top: 300px;
+      right: 0px;
     }
   }
+  //ACCUEIL-----------------
   .home {
     font-family: $font-title;
     @include displayFlexCenterEvenly;

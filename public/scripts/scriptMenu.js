@@ -7,9 +7,13 @@ navbarBurger.addEventListener('click', () => {
 });
 
 //----------------------------MENU USER RAT ----------------------
-const btnRat = document.querySelector('.userProfil__btn');
-const menuRat = document.querySelector('.userProfil__menu');
+const btnMenu = document.querySelector('.userProfil__btn');
+const menuUser = document.querySelector('.userProfil__menu');
 
-btnRat.addEventListener('click', () => {
-    menuRat.classList.toggle('hide');
+btnMenu.addEventListener('click', () => {
+    menuUser.classList.toggle('hide');
+});
+
+document.querySelector('#closeBtn').addEventListener('click', () => {
+    menuUser.classList.toggle('hide');
 });

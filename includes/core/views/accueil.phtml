@@ -20,7 +20,9 @@
             <div class="top">Accueil</div>
             <div class="bottom" aria-hidden="true">Accueil</div>
         </div>
-        <h2>Bonjour <span class="underline"><?= $_SESSION['login'] ?></span></h2>
+        <?php
+            require_once "includes/partials/userMenu.phtml";
+        ?>
     </section>
 
 <div class="home">
@@ -76,7 +78,6 @@
     </div>
     <footer>
         <?php
-            require_once "includes/partials/userMenu.phtml";
             require_once "includes/partials/back_to_the_top.phtml";
             ?>
     </footer>

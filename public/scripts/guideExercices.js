@@ -10,7 +10,7 @@ document.querySelector('select').addEventListener('change', function(){
                 titreVideo.innerText = data[0].nom;
                 document.querySelector('#infosExercices').appendChild(titreVideo);
 
-//TODO: faire un foreach data qui parcours toutes les ressources et en focntion du type de ressource faire un if
+//TODO: faire un foreach data qui parcours toutes les ressources et en fonction du type de ressource faire un if
 
                 let video = document.createElement("iframe");
                 // récupérer l'URL de la vidéo à partir de la base de données
